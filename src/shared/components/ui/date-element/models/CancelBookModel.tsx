@@ -44,7 +44,7 @@ function CancelBookModel({ time, onCloseModal }: CancelBookModelProps) {
 			onCloseModal={onCloseModal}
 		>
 			<div className='flex w-full flex-col items-start'>
-				<h2 className='font-cormorant_sc_semibold text-start text-[28px] font-semibold text-black'>
+				<h2 className='text-start font-cormorant_sc_semibold text-[28px] font-semibold text-black'>
 					{procedureTitle}
 				</h2>
 				<div className='mt-[15px] flex flex-col items-start gap-y-[10px]'>
@@ -56,7 +56,7 @@ function CancelBookModel({ time, onCloseModal }: CancelBookModelProps) {
 							height={20}
 							unoptimized
 						/>
-						<p className='font-cormorant_infant_reqular text-[25px] text-black'>
+						<p className='font-cormorant_regular text-[25px] text-black'>
 							{date}
 						</p>
 					</div>
@@ -69,14 +69,14 @@ function CancelBookModel({ time, onCloseModal }: CancelBookModelProps) {
 							height={20}
 							unoptimized
 						/>
-						<p className='font-cormorant_infant_reqular text-[25px] text-black'>
+						<p className='font-cormorant_regular text-[25px] text-black'>
 							{timeBook}
 						</p>
 					</div>
 				</div>
 				<div className='mt-[10px] flex items-center gap-x-[20px] text-[25px] text-black'>
 					<p className='font-cormorant_regular'>{userData}</p>
-					<p className='font-cormorant_infant_reqular'>{phone}</p>
+					<p className='font-cormorant_regular'>{phone}</p>
 				</div>
 
 				<Button

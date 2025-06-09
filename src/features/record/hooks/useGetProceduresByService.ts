@@ -1,14 +1,12 @@
-import { useSearchParams } from 'next/navigation'
+import { useQueryState } from 'nuqs'
 
 import { useGetGoods } from '@/features/main/hooks/useGetGoods'
 
 export const useGetProceduresByService = () => {
-	const searchParams = useSearchParams()
-
-	const sType = searchParams.get('s-type')?.toString() || ''
+	const [sType] = useQueryState('s-type')
 
 	//@ts-ignore
-	const { procedures, isLoadingProcedure } = useGetGoods(sType)
+	const { procedures, isLoadingProcedure } = useGetGoods(sType ?? '')
 
 	return {
 		procedures,

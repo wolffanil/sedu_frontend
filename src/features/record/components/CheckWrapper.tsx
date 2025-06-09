@@ -1,13 +1,11 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
+import { useQueryState } from 'nuqs'
 import { type PropsWithChildren } from 'react'
 
 function CheckWrapper({ children }: PropsWithChildren<unknown>) {
-	const searchParams = useSearchParams()
-
-	const procedureId = searchParams.get('p-id')
-	const serviceType = searchParams.get('s-type')
+	const [serviceType] = useQueryState('s-type')
+	const [procedureId] = useQueryState('p-id')
 
 	if (!procedureId || !serviceType)
 		return (

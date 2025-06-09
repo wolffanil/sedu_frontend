@@ -86,6 +86,7 @@ function DatePicker({ type, dates }: DatePickerProps) {
 					/>
 				</div>
 				<TimeWrapper
+					isDateSelect={!!selectDate}
 					type={type}
 					selectTime={selectTime}
 					handleSelectTime={handleSelectTime}

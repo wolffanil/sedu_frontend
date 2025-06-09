@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useMemo } from 'react'
 
+import { deleteRefreshCookie } from '../actions/actions.cookie'
 import { useAuth } from '../contexts/auth/AuthContext'
 import { MUTATION_KEYS } from '../enums/mutation.keys'
 import { QUERY_KEYS } from '../enums/query.keys'
@@ -21,6 +22,7 @@ export const useLogout = () => {
 				queryKey: [QUERY_KEYS.AUTH],
 				exact: false
 			})
+			deleteRefreshCookie()
 		}
 	})
 

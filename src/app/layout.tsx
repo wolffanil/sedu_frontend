@@ -26,6 +26,12 @@ const cormorant_regular = localFont({
 	variable: '--font-cormorant-regular'
 })
 
+const cormorantSc_semibold = localFont({
+	src: '../../public/fonts/cormorant-sc/CormorantSC-SemiBold.ttf',
+	variable: '--font-cormorant-sc_semibold',
+	preload: false
+})
+
 const raleway_regular = localFont({
 	src: '../../public/fonts/raleway/Raleway-Regular.ttf',
 	variable: '--font-raleway-regular',
@@ -50,7 +56,7 @@ export default function RootLayout({
 	return (
 		<html lang='ru'>
 			<body
-				className={`${cormorantSc_medium.variable} ${cormorant_regular.variable} ${raleway_regular.variable} ${cormorantSc_regular.variable} bg-gradient-to-b from-white to-[#B2ACA5] pt-[60px] antialiased`}
+				className={`${cormorantSc_medium.variable} ${cormorant_regular.variable} ${raleway_regular.variable} ${cormorantSc_regular.variable} ${cormorantSc_semibold.variable} bg-gradient-to-b from-white to-[#B2ACA5] pt-[60px] antialiased`}
 			>
 				<Provider>
 					<Header />

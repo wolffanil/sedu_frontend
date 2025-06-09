@@ -17,13 +17,15 @@ interface TimeWrapperProps {
 	type: TDatePicker
 	selectTime: ITime | undefined
 	handleSelectTime: (time: ITime) => void
+	isDateSelect: boolean
 }
 
 function TimeWrapper({
 	times,
 	type,
 	selectTime,
-	handleSelectTime
+	handleSelectTime,
+	isDateSelect
 }: TimeWrapperProps) {
 	return (
 		<CarouselDatePicker>
@@ -42,7 +44,9 @@ function TimeWrapper({
 						))
 					) : (
 						<div className='w-full text-center font-cormorant_regular text-[25px] text-black'>
-							Нету время на эту дату
+							{isDateSelect
+								? 'Нету время на эту дату'
+								: 'Выберите дату'}
 						</div>
 					)}
 				</CarouselContent>

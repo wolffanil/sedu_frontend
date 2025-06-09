@@ -26,7 +26,7 @@ function MasterItem({ master }: MasterItemProps) {
 					<p className='line-clamp-1 w-full font-cormorant_regular text-[40px] text-[#E6F2E6]'>
 						{master.surname} {master.name}
 					</p>
-					<p className='w-full break-words font-cormorant_regular text-[28px] lowercase leading-8 text-[#E6F2E6]'>
+					<p className='line-clamp-3 w-full break-words font-cormorant_regular text-[28px] lowercase leading-8 text-[#E6F2E6]'>
 						Мастер{' '}
 						{master.services?.map((p, i) =>
 							i !== 0

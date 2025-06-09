@@ -5,10 +5,7 @@ import toast from 'react-hot-toast'
 
 import { useAuth } from '@/shared/contexts/auth/AuthContext'
 import { QUERY_KEYS } from '@/shared/enums/query.keys'
-import {
-	type IErrorObj,
-	getErrorMessage
-} from '@/shared/services/api/getErrorMessage.api'
+import { getErrorMessage } from '@/shared/services/api/getErrorMessage.api'
 import { AuthService } from '@/shared/services/auth/auth.service'
 import type { IRegister } from '@/shared/types/auth.interface'
 

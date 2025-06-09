@@ -26,8 +26,8 @@ function ProductItem({ procedure }: ProductItemProps) {
 					`relative flex w-[403px] flex-col items-center justify-center ${cormorantInfant.variable}`
 				)}
 			>
-				<div className='absolute left-0 right-0 top-0 flex h-[113px] w-full justify-center rounded-[25px] bg-green-bright py-[32px] shadow-sm'>
-					<p className='line-clamp-1 font-cormorant_regular text-[40px] text-white'>
+				<div className='absolute left-0 right-0 top-0 flex h-[113px] w-full items-center justify-center rounded-[25px] bg-green-bright shadow-sm'>
+					<p className='line-clamp-2 text-center font-cormorant_regular text-[40px] leading-tight text-white'>
 						{procedure.title}
 					</p>
 				</div>

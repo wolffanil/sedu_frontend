@@ -24,7 +24,7 @@ function Services() {
 		return <ServiceSkeleton />
 	}
 
-	if (!services?.length) return <div>нет сервисов</div>
+	if (!services?.length) return null
 
 	return (
 		<ul className='mt-[30px] flex max-h-[345px] w-full flex-col items-start gap-y-[26px] overflow-y-scroll'>

@@ -17,7 +17,7 @@ function ReviewItem({ review }: ReviewItemProps) {
 					alt='profile'
 					width={90}
 					height={90}
-					className='rounded-[25px] object-cover'
+					className='max-h-[90px] max-w-[90px] rounded-[25px] object-cover'
 				/>
 				<div className='flex flex-col items-start'>
 					<p className='mt-[-5px] line-clamp-1 font-cormorant_sc_regular text-[40px] uppercase text-black'>

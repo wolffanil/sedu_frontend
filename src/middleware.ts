@@ -11,7 +11,7 @@ export default function middleware(request: NextRequest) {
 
 	const isProfile = nextUrl.pathname.startsWith('/profile')
 
-	if (!refreshToken && isProfile) {
+	if (!refreshToken?.length && isProfile) {
 		return NextResponse.redirect(new URL('/', url))
 	}
 

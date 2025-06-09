@@ -18,7 +18,7 @@ function ReviewItem({ review }: ReviewItemProps) {
 						alt='profile'
 						width={75}
 						height={75}
-						className='rounded-[25px] object-cover'
+						className='max-h-[75px] max-w-[75px] rounded-[25px] object-cover'
 					/>
 					<div className='flex flex-col items-start'>
 						<p className='line-clamp-1 font-cormorant_sc_regular text-[40px] uppercase text-black'>
@@ -29,7 +29,7 @@ function ReviewItem({ review }: ReviewItemProps) {
 						</p>
 					</div>
 				</div>
-				<p className='mt-[7px] line-clamp-6 w-full break-words font-cormorant_regular text-[36px]'>
+				<p className='mt-[7px] line-clamp-6 w-full break-words font-cormorant_regular text-[36px] leading-tight'>
 					{review.text}
 				</p>
 			</li>

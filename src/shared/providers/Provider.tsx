@@ -2,6 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { ReactNode, useState } from 'react'
 import { Toaster } from 'react-hot-toast'
 
@@ -20,9 +21,11 @@ const Provider = ({ children }: { children: ReactNode }) => {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<AuthProvider>{children}</AuthProvider>
-			<Toaster position='top-center' />
-			<ReactQueryDevtools initialIsOpen={false} />
+			<NuqsAdapter>
+				<AuthProvider>{children}</AuthProvider>
+				<Toaster position='top-center' />
+				<ReactQueryDevtools initialIsOpen={false} />
+			</NuqsAdapter>
 		</QueryClientProvider>
 	)
 }

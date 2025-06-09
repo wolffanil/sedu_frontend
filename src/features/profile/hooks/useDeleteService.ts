@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { useSearchParams } from 'next/navigation'
+import { useQueryState } from 'nuqs'
 import { useMemo } from 'react'
 
 import { MUTATION_KEYS } from '@/shared/enums/mutation.keys'
@@ -17,9 +17,7 @@ export function useDeleteService({
 	serviceId: string
 }) {
 	const queryClient = useQueryClient()
-	const searchParams = useSearchParams()
-
-	const sType = searchParams.get('s-master')
+	const [sType] = useQueryState('s-master')
 
 	const { mutateAsync: deleteService, isPending: isDeletingService } =
 		useMutation({

@@ -5,7 +5,7 @@ import { aboutUs } from './aboutUs.constants'
 
 function AboutUs() {
 	return (
-		<section className='relative mt-[45px] w-full pb-[150px]'>
+		<section className='relative mt-[45px] w-full pb-[170px]'>
 			<h1 className='text-center font-raleway_regular text-[64px] text-[#1D281D]'>
 				О нас
 			</h1>
@@ -25,7 +25,7 @@ function AboutUs() {
 			<Image
 				src='/images/line.png'
 				alt='line'
-				className='absolute bottom-[-350px] left-[-273px] z-[-1] h-[1504px] min-w-[1922px]'
+				className='absolute bottom-[-330px] left-[-273px] z-[-1] h-[1504px] min-w-[1922px]'
 				width={1900}
 				height={1504}
 				priority

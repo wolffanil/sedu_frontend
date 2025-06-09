@@ -8,7 +8,7 @@ import { APP_URL } from '@/shared/libs/constants/url.constants'
 
 async function getReviews() {
 	const response = await fetch(API_URL + getReviewUrl(''), {
-		next: { revalidate: 300 }
+		next: { revalidate: 60 }
 	})
 	if (!response.ok) {
 		throw new Error('Failed to fetch reviews')

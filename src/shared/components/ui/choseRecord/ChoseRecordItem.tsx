@@ -1,8 +1,7 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
+import { useQueryState } from 'nuqs'
 
-import { useSetSearchParams } from '@/shared/hooks/useSetSearchParams'
 import type { IRecord } from '@/shared/types/record.interface'
 
 import TabItem from '../TabItem'
@@ -14,21 +13,26 @@ interface ChoseRecordItemProps {
 
 function ChoseRecordItem({ record, type }: ChoseRecordItemProps) {
 	const { title, param } = record
-	const { createQueryString } = useSetSearchParams(true)
-	const searchParams = useSearchParams()
+	const [sType, setSType] = useQueryState('s-type')
+	const [sMaster, setSMaster] = useQueryState('s-master')
+	const [_, setPId] = useQueryState('p-id')
 
-	const sType =
-		searchParams.get(type === 'record' ? 's-type' : 's-master') ?? ''
+	const sTypeQ = type === 'record' ? sType : sMaster
 
 	return (
 		<TabItem
-			isActive={param === sType}
-			handleClick={() =>
-				createQueryString(
-					type === 'record' ? 's-type' : 's-master',
-					param
-				)
-			}
+			isActive={param === sTypeQ}
+			handleClick={() => {
+				if (type === 'record') {
+					setPId(null)
+					setSMaster(null)
+					setSType(param)
+				} else {
+					setPId(null)
+					setSType(null)
+					setSMaster(param)
+				}
+			}}
 			title={title}
 		/>
 	)
