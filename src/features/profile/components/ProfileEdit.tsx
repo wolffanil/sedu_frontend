@@ -20,6 +20,8 @@ function ProfileEdit() {
 
 	const [isEdit, setIsEdit] = useState(false)
 
+	console.log(user, 'User')
+
 	const { control, setError, handleSubmit, setValue } = useForm<IProfileEdit>(
 		{
 			resolver: zodResolver(ProfileSchema),
@@ -28,7 +30,7 @@ function ProfileEdit() {
 				surname: user?.surname,
 				phone: user?.phone,
 				email: user?.email,
-				birthday: user?.birthday ? user.birthday : '',
+				birthday: user?.birthday ? user.birthday?.split('T')[0] : '',
 				file: []
 			}
 		}
