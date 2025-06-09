@@ -91,7 +91,7 @@ function Register({ setIsRegister, onCloseModal }: RegisterProps) {
 				disabled={isLoadingRegister || !recaptchaValue}
 				className='max-2xl:text-[22px]'
 			>
-				Зарегистрироваться
+				{isLoadingRegister ? 'Загрузка...' : 'Зарегистрироваться'}
 			</Button>
 		</form>
 	)

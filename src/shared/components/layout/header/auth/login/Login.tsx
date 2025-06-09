@@ -78,7 +78,7 @@ function Login({ setIsRegister, onCloseModal }: LoginProps) {
 				disabled={isLoadingLogin || !recaptchaValue}
 				className='max-2xl:text-[22px]'
 			>
-				Войти
+				{isLoadingLogin ? 'Загрузка...' : 'Войти'}
 			</Button>
 		</form>
 	)
