@@ -1,5 +1,7 @@
 import Image from 'next/image'
 
+import womanImg from '../../../../../public/images/woman.webp'
+
 function Sedu() {
 	return (
 		<section
@@ -23,9 +25,10 @@ function Sedu() {
 				</div>
 			</div>
 			<Image
-				src='/images/woman.webp'
+				src={womanImg}
 				alt='woman'
 				priority
+				placeholder='blur'
 				height={878}
 				width={496}
 				className='h-full rounded-br-[25px] rounded-tr-[25px]'
