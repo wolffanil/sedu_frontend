@@ -38,6 +38,7 @@ function DatePicker({ type, dates }: DatePickerProps) {
 
 	const handleSelectDate = useCallback((date: IDate) => {
 		setDateTime(undefined)
+		setSelectTime(undefined)
 		setSelectDate(date)
 	}, [])
 
@@ -102,7 +103,7 @@ function DatePicker({ type, dates }: DatePickerProps) {
 					>
 						<ButtonActions
 							typeAction='record'
-							disabled={!selectDate || !selectTime}
+							disabled={!selectDate?.id || !selectTime?.id}
 						/>
 					</Modal.Open>
 					<Modal.Window name='confirm'>

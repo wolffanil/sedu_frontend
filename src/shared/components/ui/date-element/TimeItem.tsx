@@ -21,6 +21,8 @@ function TimeItem({ type, time, selectTime, handleSelectTime }: TimeItemProps) {
 
 	const isSelect = time.id === selectTime?.id
 
+	const isDisabledRecord = isRecord && time.isBusy
+
 	return (
 		<CarouselItem className='basis-1/8'>
 			<Modal>
@@ -35,11 +37,11 @@ function TimeItem({ type, time, selectTime, handleSelectTime }: TimeItemProps) {
 								{
 									'border border-black':
 										isSelect || (!isRecord && time.isBusy),
-									'bg-green-bright': !isRecord && time.isBusy
+									'bg-green-bright': time.isBusy
 								}
 							)}
 							onClick={() => handleSelectTime(time)}
-							disabled={isSelect}
+							disabled={isSelect || isDisabledRecord}
 						>
 							{time.time}
 						</button>

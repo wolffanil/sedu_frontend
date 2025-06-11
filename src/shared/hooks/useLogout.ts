@@ -12,17 +12,17 @@ export const useLogout = () => {
 
 	const queryClient = useQueryClient()
 
-	const { mutate: logout, isPending: isLogoutLoading } = useMutation({
+	const { mutateAsync: logout, isPending: isLogoutLoading } = useMutation({
 		mutationKey: [MUTATION_KEYS.LOGOUT],
 		mutationFn: () => AuthService.logout(),
 		onSettled: () => {
-			setUser(null)
-			setIsAuth(false)
 			queryClient.removeQueries({
 				queryKey: [QUERY_KEYS.AUTH],
 				exact: false
 			})
-			deleteRefreshCookie()
+			setUser(null)
+			setIsAuth(false)
+			// deleteRefreshCookie()
 		}
 	})
 

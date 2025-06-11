@@ -10,9 +10,9 @@ import ChoseAction from './master/ChoseAction'
 const BookTabs = dynamic(() => import('./user/BookTabs'))
 
 function ProfileActions() {
-	const { user, isLoading } = useAuth()
+	const { user, isLoading, isAuth } = useAuth()
 
-	if (isLoading) return null
+	if (isLoading || !isAuth) return null
 
 	if (user?.role === RoleUser.MASTER) return <ChoseAction />
 

@@ -1,6 +1,5 @@
 import localFont from 'next/font/local'
 
-import AuthLoading from '@/shared/components/ui/AuthLoading'
 import { cn } from '@/shared/utils/tw-merge'
 
 import ProfileActions from './ProfileActions'
@@ -18,16 +17,14 @@ const CormorantScSemibold = localFont({
 
 function Profile() {
 	return (
-		<AuthLoading>
-			<section
-				className={cn(
-					`mb-[150px] mt-[50px] w-full ${CormorantInfantRegular.variable} ${CormorantScSemibold.variable}`
-				)}
-			>
-				<ProfileEdit />
-				<ProfileActions />
-			</section>
-		</AuthLoading>
+		<section
+			className={cn(
+				`mb-[150px] mt-[50px] w-full ${CormorantInfantRegular.variable} ${CormorantScSemibold.variable}`
+			)}
+		>
+			<ProfileEdit />
+			<ProfileActions />
+		</section>
 	)
 }
 

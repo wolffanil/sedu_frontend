@@ -13,7 +13,7 @@ function AuthLoading({ children }: PropsWithChildren<AuthLoadingProps>) {
 	if (isLoading)
 		return <div className='fixed inset-0 bg-white bg-opacity-50' />
 
-	if (!isAuth) redirect('/')
+	if (!isAuth) return redirect('/')
 
 	return children
 }

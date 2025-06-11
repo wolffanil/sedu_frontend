@@ -7,7 +7,6 @@ import { Controller, useForm } from 'react-hook-form'
 
 import Button from '@/shared/components/ui/Button'
 import FieldProfile from '@/shared/components/ui/form-elements/FieldProfile'
-import Phone from '@/shared/components/ui/form-elements/Phone'
 import ProfileUploader from '@/shared/components/ui/form-elements/profileUploader/ProfileUploader'
 import { useAuth } from '@/shared/contexts/auth/AuthContext'
 import { cn } from '@/shared/utils/tw-merge'
@@ -19,8 +18,6 @@ function ProfileEdit() {
 	const { user } = useAuth()
 
 	const [isEdit, setIsEdit] = useState(false)
-
-	console.log(user, 'User')
 
 	const { control, setError, handleSubmit, setValue } = useForm<IProfileEdit>(
 		{
@@ -122,7 +119,7 @@ function ProfileEdit() {
 			{isEdit ? (
 				<div className='mx-auto flex items-start gap-x-[30px]'>
 					<Button type='submit' disabled={disabledEdit}>
-						Редактировать
+						Сохранить
 					</Button>
 					<Button
 						type='reset'

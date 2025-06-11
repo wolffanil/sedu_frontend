@@ -51,9 +51,11 @@ const ProfileUploader = ({
 					alt='image'
 					className='h-[442px] w-[442px] rounded-[25px] object-cover object-top'
 				/>
-				<p className='font-cormorant_sc_medium text-[25px] text-black'>
-					Изменить фотографию профиля
-				</p>
+				{!disabled ? (
+					<p className='font-cormorant_sc_medium text-[25px] text-black'>
+						Изменить фотографию профиля
+					</p>
+				) : null}
 			</div>
 		</div>
 	)

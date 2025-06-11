@@ -3,8 +3,6 @@
 import { type ButtonHTMLAttributes } from 'react'
 
 import { useAuth } from '@/shared/contexts/auth/AuthContext'
-import { type IDate } from '@/shared/types/dates.interface'
-import { ITime } from '@/shared/types/time.interface'
 
 import Button from '../Button'
 
