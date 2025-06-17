@@ -3,6 +3,7 @@
 import { type ButtonHTMLAttributes } from 'react'
 
 import { useAuth } from '@/shared/contexts/auth/AuthContext'
+import { RoleUser } from '@/shared/types/user.interface'
 
 import Button from '../Button'
 
@@ -13,17 +14,25 @@ interface ButtonActionsProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 function ButtonActions({ typeAction, ...rest }: ButtonActionsProps) {
-	const { isAuth } = useAuth()
+	const { isAuth, user } = useAuth()
 
 	const isRecord = typeAction === 'record'
 
+	const isMaster = user?.role === RoleUser.MASTER
+
 	return (
-		<Button className='text-[40px]' {...rest} disabled={!isAuth}>
+		<Button
+			className='text-[40px]'
+			{...rest}
+			disabled={!isAuth || isMaster}
+		>
 			{!isAuth
 				? 'Вы не вошли в систему'
-				: isRecord
-					? 'Записаться'
-					: 'Редактировать'}
+				: isMaster
+					? 'Мастер не может записываться'
+					: isRecord
+						? 'Записаться'
+						: 'Редактировать'}
 		</Button>
 	)
 }

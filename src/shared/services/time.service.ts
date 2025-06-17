@@ -1,7 +1,15 @@
 import { getTimeUrl } from '@/shared/config/api.config'
-import { requestClassic } from '@/shared/services/api/request.api'
+import {
+	requestClassic,
+	requestWithAuth
+} from '@/shared/services/api/request.api'
 
-import { IResponseGetTimes } from '../types/time.interface'
+import type {
+	IResponseGetTimes,
+	ITime,
+	ITimeCreate,
+	ITimeUpdate
+} from '../types/time.interface'
 
 export const TimeSerice = {
 	async getTimesByDateId(dateId: string) {
@@ -20,5 +28,34 @@ export const TimeSerice = {
 		})
 
 		return response.times
+	},
+
+	async create(data: ITimeCreate) {
+		const response = await requestWithAuth<{ time: ITime }>({
+			url: getTimeUrl(''),
+			method: 'POST',
+			data
+		})
+
+		return response.time
+	},
+
+	async update(timeId: string, data: ITimeUpdate) {
+		const response = await requestWithAuth<{ time: ITime }>({
+			url: getTimeUrl(`/${timeId}`),
+			method: 'PATCH',
+			data
+		})
+
+		return response.time
+	},
+
+	async delete(timeId: string) {
+		const response = await requestWithAuth<boolean>({
+			url: getTimeUrl(`/${timeId}`),
+			method: 'DELETE'
+		})
+
+		return response
 	}
 }

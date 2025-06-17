@@ -1,5 +1,7 @@
 import { ITimestamps } from '@/shared/types/timestampts.interface'
 
+import { TimeSchemaType } from '../schemas/time/time.schema'
+
 export interface ITime extends ITimestamps {
 	id: string
 	dateId: string
@@ -18,3 +20,9 @@ export interface ITime extends ITimestamps {
 export interface IResponseGetTimes {
 	times: ITime[]
 }
+
+export interface ITimeCreate extends TimeSchemaType {
+	dateId: string
+}
+
+export interface ITimeUpdate extends TimeSchemaType {}

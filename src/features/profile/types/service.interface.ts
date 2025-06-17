@@ -1,6 +1,8 @@
 import type { serivceType } from '@/shared/types/procedure.type'
 import type { ITimestamps } from '@/shared/types/timestampts.interface'
 
+import { ServiceSchemaType } from '../schemas/service.schema'
+
 export interface IService extends ITimestamps {
 	id: string
 	address: string
@@ -21,4 +23,8 @@ export interface IServicesWithUserData extends IService {
 		surname: string
 		name: string
 	}
+}
+
+export interface IServiceUpdate extends ServiceSchemaType {
+	service: string
 }

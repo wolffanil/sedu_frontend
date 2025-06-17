@@ -4,8 +4,11 @@ import {
 	requestWithAuth
 } from '@/shared/services/api/request.api'
 import type {
+	ICreateDate,
+	IDate,
 	IResponseGetDates,
-	IResponseGetMasterDates
+	IResponseGetMasterDates,
+	IUpdateDate
 } from '@/shared/types/dates.interface'
 
 export const DateSerice = {
@@ -25,5 +28,36 @@ export const DateSerice = {
 		})
 
 		return response.dates
+	},
+
+	async create(data: ICreateDate) {
+		const response = await requestWithAuth<{ date: IDate }>({
+			url: getDateUrl(''),
+			method: 'POST',
+			data
+		})
+
+		return response.date
+	},
+
+	async update(data: IUpdateDate) {
+		const dateId = data.dateId
+
+		const response = await requestWithAuth<{ date: IDate }>({
+			url: getDateUrl(`/${dateId}`),
+			method: 'PATCH',
+			data
+		})
+
+		return response.date
+	},
+
+	async delete(dateId: string) {
+		const response = await requestWithAuth<boolean>({
+			url: getDateUrl(`/${dateId}`),
+			method: 'DELETE'
+		})
+
+		return response
 	}
 }

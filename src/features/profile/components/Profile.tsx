@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import { cn } from '@/shared/utils/tw-merge'
 
 import ProfileActions from './ProfileActions'
+import ProfileBonus from './ProfileBonus'
 import ProfileEdit from './ProfileEdit'
 
 const CormorantInfantRegular = localFont({
@@ -23,6 +24,7 @@ function Profile() {
 			)}
 		>
 			<ProfileEdit />
+			<ProfileBonus />
 			<ProfileActions />
 		</section>
 	)

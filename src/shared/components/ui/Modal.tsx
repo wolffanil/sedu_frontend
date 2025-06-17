@@ -1,3 +1,5 @@
+'use client'
+
 import {
 	Dispatch,
 	SetStateAction,
@@ -31,7 +33,7 @@ const Modal = ({
 	const close = () => {
 		setOpenName('')
 		handleClose?.()
-		document.body.style.overflowX = 'scroll'
+		document.body.style.overflowY = 'scroll'
 	}
 	const open = setOpenName
 
@@ -59,21 +61,21 @@ const Open = ({
 	disabled?: boolean
 	className?: string
 }) => {
-	const { open } = useContext(ModalContext)
+	const { open, openName } = useContext(ModalContext)
 
 	// return cloneElement(children, { onOpenModal: () => open(opensWindowName) });
 
 	useEffect(() => {
-		if (open?.length > 1) {
-			document.body.style.overflowX = 'hidden'
+		if (openName?.length > 1) {
+			document.body.style.overflowY = 'hidden'
 		} else {
-			document.body.style.overflowX = 'scroll'
+			document.body.style.overflowY = 'scroll'
 		}
 
 		return () => {
-			document.body.style.overflowX = 'scroll'
+			document.body.style.overflowY = 'scroll'
 		}
-	}, [open])
+	}, [open, openName])
 
 	return (
 		<div

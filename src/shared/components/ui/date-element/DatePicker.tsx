@@ -1,5 +1,6 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { useCallback, useRef, useState } from 'react'
 
@@ -7,14 +8,16 @@ import { useGetTimes } from '@/shared/hooks/useGetTimes'
 import { type IDate } from '@/shared/types/dates.interface'
 import { type ITime } from '@/shared/types/time.interface'
 
+import Button from '../Button'
 import Modal from '../Modal'
-import ModelWrapper from '../ModelWrapper'
 
 import ButtonActions from './ButtonActions'
 import DateWrapper from './DateWrapper'
 import TimeWrapper from './TimeWrapper'
 import { ConfirmRecordModel } from './models'
 import { type TDatePicker } from './type-date.type'
+
+const WrapperEdit = dynamic(() => import('./master/WrapperEdit'))
 
 interface DatePickerProps {
 	type: TDatePicker
@@ -27,6 +30,8 @@ function DatePicker({ type, dates }: DatePickerProps) {
 	const [selectDate, setSelectDate] = useState<IDate | undefined>(undefined)
 
 	const [selectTime, setSelectTime] = useState<ITime | undefined>(undefined)
+
+	const [isShowEdit, setIsShowEdit] = useState(false)
 
 	const dateInputRef = useRef<HTMLInputElement>(null)
 
@@ -42,6 +47,12 @@ function DatePicker({ type, dates }: DatePickerProps) {
 		setSelectDate(date)
 	}, [])
 
+	const handleShowEdit = useCallback(() => {
+		setIsShowEdit(true)
+		setSelectTime(undefined)
+		setDateTime(undefined)
+	}, [])
+
 	const handleSelectTime = useCallback((time: ITime) => {
 		setSelectTime(time)
 	}, [])
@@ -54,7 +65,9 @@ function DatePicker({ type, dates }: DatePickerProps) {
 
 	return (
 		<div className='flex w-full flex-col items-center gap-y-[50px]'>
-			<div className='flex w-full flex-col items-start gap-y-[35px] rounded-[25px] bg-[#E6EDE6] p-[25px]'>
+			<div
+				className={`flex w-full flex-col items-start gap-y-[35px] rounded-[25px] bg-[#E6EDE6] p-[25px] ${isShowEdit ? 'hidden' : ''}`}
+			>
 				<div className='flex w-full items-start gap-x-[15px]'>
 					<div className='relative flex h-[59px] w-[150px] items-center justify-center rounded-[25px] bg-white'>
 						<input
@@ -118,8 +131,16 @@ function DatePicker({ type, dates }: DatePickerProps) {
 						)}
 					</Modal.Window>
 				</Modal>
+			) : !isShowEdit ? (
+				<Button disabled={!selectDate?.id} onClick={handleShowEdit}>
+					{!selectDate?.id ? 'Выберите дату' : 'Редактировать'}
+				</Button>
 			) : (
-				<></>
+				<WrapperEdit
+					setIsShowEdit={setIsShowEdit}
+					selectDate={selectDate}
+					setSelectDate={setSelectDate}
+				/>
 			)}
 		</div>
 	)

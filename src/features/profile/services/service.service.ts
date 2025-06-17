@@ -2,7 +2,12 @@ import { getServiceUrl } from '@/shared/config/api.config'
 import { requestWithAuth } from '@/shared/services/api/request.api'
 import type { serivceType } from '@/shared/types/procedure.type'
 
-import type { ISerivceResponse } from '../types/service.interface'
+import { ServiceSchemaType } from '../schemas/service.schema'
+import type {
+	ISerivceResponse,
+	IService,
+	IServiceUpdate
+} from '../types/service.interface'
 
 export const ServiceService = {
 	async getByService(serviceType: serivceType) {
@@ -21,5 +26,26 @@ export const ServiceService = {
 		})
 
 		return response
+	},
+
+	async create(data: IServiceUpdate) {
+		console.log(data, 'data')
+		const response = await requestWithAuth<{ service: IService }>({
+			url: getServiceUrl(''),
+			method: 'POST',
+			data
+		})
+
+		return response.service
+	},
+
+	async update(data: IServiceUpdate, serviceId: string) {
+		const response = await requestWithAuth<{ service: IService }>({
+			url: getServiceUrl(`/${serviceId}`),
+			method: 'PATCH',
+			data
+		})
+
+		return response.service
 	}
 }

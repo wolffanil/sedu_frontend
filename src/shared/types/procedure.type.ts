@@ -2,6 +2,12 @@ import { ITimestamps } from './timestampts.interface'
 
 export type serivceType = 'НОГТИ' | 'БРОВИ' | 'РЕСНИЦЫ'
 
+export enum EnumServiceType {
+	'НОГТИ',
+	'БРОВИ',
+	'РЕСНИЦЫ'
+}
+
 export interface IProcedure extends ITimestamps {
 	id: string
 	service: serivceType

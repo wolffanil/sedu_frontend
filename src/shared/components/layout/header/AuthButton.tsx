@@ -19,7 +19,10 @@ function AuthButton() {
 	if (isAuth)
 		return (
 			<div className='ml-auto flex items-center gap-x-[30px]'>
-				<Link href={PUBLIC_URL.profile()} className='header__link'>
+				<Link
+					href={PUBLIC_URL.profile() + '?s-master=НОГТИ'}
+					className='header__link'
+				>
 					Профиль
 				</Link>
 				<button
