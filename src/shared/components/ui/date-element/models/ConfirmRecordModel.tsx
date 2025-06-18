@@ -15,19 +15,26 @@ interface ConfirmRecordModelProps {
 	selectTime: ITime
 	setSelectTime: Dispatch<SetStateAction<ITime | undefined>>
 	onCloseModal?: () => void
+	isActiveBonuses: boolean
+	setIsActiveBonusus: Dispatch<SetStateAction<boolean>>
 }
 
 function ConfirmRecordModel({
 	selectTime,
 	selectDate,
 	setSelectTime,
+	isActiveBonuses,
+	setIsActiveBonusus,
 	onCloseModal
 }: ConfirmRecordModelProps) {
 	const { handleCreateBook, isLoadingCreateBook } = useConfirmRecord({
 		timeId: selectTime?.id ?? '',
 		dateId: selectDate?.id,
+		selectTime,
 		setSelectTime,
-		onCloseModel: onCloseModal
+		onCloseModel: onCloseModal,
+		isActiveBonuses,
+		setIsActiveBonusus
 	})
 
 	if (!selectDate || !selectTime) return null

@@ -11,7 +11,8 @@ import { IProfileUploader } from './profileUploader.interface'
 const ProfileUploader = ({
 	fieldChange,
 	mediaUrl,
-	disabled
+	disabled,
+	isEdit
 }: IProfileUploader) => {
 	const [file, setFile] = useState<File[]>([])
 	const [fileUrl, setFileUrl] = useState<string>(mediaUrl)
@@ -51,7 +52,7 @@ const ProfileUploader = ({
 					alt='image'
 					className='h-[442px] w-[442px] rounded-[25px] object-cover object-top'
 				/>
-				{!disabled ? (
+				{isEdit ? (
 					<p className='font-cormorant_sc_medium text-[25px] text-black'>
 						Изменить фотографию профиля
 					</p>

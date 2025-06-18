@@ -16,7 +16,7 @@ export interface IUser extends ITimestamps {
 	photo: string
 	phone: string
 	birthday: string
-	bonuses: string
+	bonuses: number
 	role: RoleUser
 }
 

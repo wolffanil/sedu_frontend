@@ -15,7 +15,7 @@ export const useProfile = (
 	setError: UseFormSetError<IProfileEdit>,
 	setValue: UseFormSetValue<IProfileEdit>
 ) => {
-	const { uploadProfile } = usePhoto()
+	const { uploadProfile, isLoadingPhoto } = usePhoto()
 	const { setUser, user } = useAuth()
 
 	const { mutateAsync: updateProfile, isPending: isUpdatingProfile } =
@@ -76,8 +76,8 @@ export const useProfile = (
 	return useMemo(
 		() => ({
 			handleUpdateProfile,
-			isUpdatingProfile
+			isUpdatingProfile: isUpdatingProfile || isLoadingPhoto
 		}),
-		[handleUpdateProfile, isUpdatingProfile]
+		[handleUpdateProfile, isUpdatingProfile, isLoadingPhoto]
 	)
 }

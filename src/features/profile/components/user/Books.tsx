@@ -33,7 +33,9 @@ function Books({ type }: BooksProps) {
 					<BookItem key={book.id} type={type} book={book} />
 				))
 			) : (
-				<p>Записей нету</p>
+				<p className='font-cormorant_regular text-[24px]'>
+					Записей нету
+				</p>
 			)}
 		</ul>
 	)

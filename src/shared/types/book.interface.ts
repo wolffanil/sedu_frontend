@@ -56,6 +56,7 @@ export interface IMyBook extends IBook {
 					service: serivceType
 					id: string
 					title: string
+					price: number
 				}
 			}
 		}

@@ -7,27 +7,34 @@ import { QUERY_KEYS } from '@/shared/enums/query.keys'
 import { getErrorMessage } from '@/shared/services/api/getErrorMessage.api'
 import { BookService } from '@/shared/services/book.service'
 import { type ITime } from '@/shared/types/time.interface'
+import { IUser } from '@/shared/types/user.interface'
 import { notification } from '@/shared/utils/notification'
 
 export const useConfirmRecord = ({
 	timeId,
 	dateId,
 	setSelectTime,
-	onCloseModel
+	selectTime,
+	onCloseModel,
+	isActiveBonuses,
+	setIsActiveBonusus
 }: {
 	timeId: string
 	dateId: string
+	selectTime: ITime
 	setSelectTime: Dispatch<SetStateAction<ITime | undefined>>
 	onCloseModel?: () => void
+	isActiveBonuses: boolean
+	setIsActiveBonusus: Dispatch<SetStateAction<boolean>>
 }) => {
-	const { isAuth } = useAuth()
+	const { isAuth, setUser } = useAuth()
 
 	const queryClient = useQueryClient()
 
 	const { mutateAsync: createBook, isPending: isLoadingCreateBook } =
 		useMutation({
 			mutationKey: [MUTATION_KEYS.CREATE_BOOK],
-			mutationFn: () => BookService.create(timeId),
+			mutationFn: () => BookService.create(timeId, isActiveBonuses),
 
 			onSuccess: () => {
 				queryClient.setQueryData(
@@ -45,6 +52,19 @@ export const useConfirmRecord = ({
 				})
 
 				setSelectTime(undefined)
+
+				if (isActiveBonuses) {
+					const percent =
+						Number(selectTime.date.service.procedure.price) * 0.1
+					setUser(
+						u =>
+							({
+								...u,
+								bonuses: (u?.bonuses || 0) - percent
+							}) as IUser
+					)
+				}
+				setIsActiveBonusus(false)
 
 				notification({
 					type: 'success',

@@ -34,7 +34,7 @@ export function useCancelBook(
 					onCloseModal?.()
 				notification({
 					type: 'success',
-					message: 'Бронирование успешно отмененно'
+					message: 'Бронирование успешно отменено'
 				})
 			},
 			onError: (error: any) => {

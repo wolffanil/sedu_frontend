@@ -19,8 +19,6 @@ export function useCreateService(
 	const queryClient = useQueryClient()
 	const [sMaster] = useQueryState('s-master')
 
-	console.log(sMaster)
-
 	const { mutateAsync: createService, isPending: isCreatingService } =
 		useMutation({
 			mutationKey: [MUTATION_KEYS.CREATE_SERVICE],

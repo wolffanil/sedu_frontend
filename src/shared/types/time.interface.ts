@@ -12,6 +12,7 @@ export interface ITime extends ITimestamps {
 			address: string
 			procedure: {
 				title: string
+				price: number
 			}
 		}
 	}

@@ -8,11 +8,11 @@ import {
 import { requestWithAuth } from './api/request.api'
 
 export const BookService = {
-	async create(timeId: string) {
+	async create(timeId: string, isActiveBonuses: boolean) {
 		const response = await requestWithAuth<IResponseCreateBook>({
 			url: getBookUrl(''),
 			method: 'POST',
-			data: { timeId }
+			data: { timeId, isActiveBonuses }
 		})
 
 		return response.book

@@ -29,7 +29,6 @@ export const ServiceService = {
 	},
 
 	async create(data: IServiceUpdate) {
-		console.log(data, 'data')
 		const response = await requestWithAuth<{ service: IService }>({
 			url: getServiceUrl(''),
 			method: 'POST',

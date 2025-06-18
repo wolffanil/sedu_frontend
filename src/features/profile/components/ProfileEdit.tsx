@@ -58,6 +58,7 @@ function ProfileEdit() {
 								fieldChange={onChange}
 								mediaUrl={user?.photo || ''}
 								disabled={disabledEdit}
+								isEdit={isEdit}
 							/>
 							{errors?.file && errors.file?.message && (
 								<p
@@ -119,7 +120,7 @@ function ProfileEdit() {
 			{isEdit ? (
 				<div className='mx-auto flex items-start gap-x-[30px]'>
 					<Button type='submit' disabled={disabledEdit}>
-						Сохранить
+						{disabledEdit ? 'Загрузка...' : 'Сохранить'}
 					</Button>
 					<Button
 						type='reset'

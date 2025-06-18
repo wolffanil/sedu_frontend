@@ -13,6 +13,7 @@ import Modal from '../Modal'
 
 import ButtonActions from './ButtonActions'
 import DateWrapper from './DateWrapper'
+import FinalPrice from './FinalPrice'
 import TimeWrapper from './TimeWrapper'
 import { ConfirmRecordModel } from './models'
 import { type TDatePicker } from './type-date.type'
@@ -40,6 +41,8 @@ function DatePicker({ type, dates }: DatePickerProps) {
 		selectDate?.id,
 		dateTime
 	)
+
+	const [isActiveBonuses, setIsActiveBonusus] = useState(false)
 
 	const handleSelectDate = useCallback((date: IDate) => {
 		setDateTime(undefined)
@@ -109,28 +112,37 @@ function DatePicker({ type, dates }: DatePickerProps) {
 			</div>
 
 			{type === 'record' ? (
-				<Modal>
-					<Modal.Open
-						opens='confirm'
-						disabled={!selectDate || !selectTime}
-					>
-						<ButtonActions
-							typeAction='record'
-							disabled={!selectDate?.id || !selectTime?.id}
-						/>
-					</Modal.Open>
-					<Modal.Window name='confirm'>
-						{selectDate && selectTime ? (
-							<ConfirmRecordModel
-								selectDate={selectDate}
-								setSelectTime={setSelectTime}
-								selectTime={selectTime}
+				<>
+					<FinalPrice
+						isActiveBonuses={isActiveBonuses}
+						selectTime={selectTime}
+						setIsActiveBonusus={setIsActiveBonusus}
+					/>
+					<Modal>
+						<Modal.Open
+							opens='confirm'
+							disabled={!selectDate || !selectTime}
+						>
+							<ButtonActions
+								typeAction='record'
+								disabled={!selectDate?.id || !selectTime?.id}
 							/>
-						) : (
-							<></>
-						)}
-					</Modal.Window>
-				</Modal>
+						</Modal.Open>
+						<Modal.Window name='confirm'>
+							{selectDate && selectTime ? (
+								<ConfirmRecordModel
+									selectDate={selectDate}
+									setSelectTime={setSelectTime}
+									selectTime={selectTime}
+									isActiveBonuses={isActiveBonuses}
+									setIsActiveBonusus={setIsActiveBonusus}
+								/>
+							) : (
+								<></>
+							)}
+						</Modal.Window>
+					</Modal>
+				</>
 			) : !isShowEdit ? (
 				<Button disabled={!selectDate?.id} onClick={handleShowEdit}>
 					{!selectDate?.id ? 'Выберите дату' : 'Редактировать'}
