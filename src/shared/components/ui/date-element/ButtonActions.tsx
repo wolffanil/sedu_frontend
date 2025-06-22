@@ -22,7 +22,7 @@ function ButtonActions({ typeAction, ...rest }: ButtonActionsProps) {
 
 	return (
 		<Button
-			className='text-[40px]'
+			className='text-[40px] max-sm:h-[40px] max-sm:text-[20px]'
 			{...rest}
 			disabled={!isAuth || isMaster}
 		>

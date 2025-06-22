@@ -8,7 +8,7 @@ interface ServiceItemProps {
 
 function ServiceItem({ service }: ServiceItemProps) {
 	return (
-		<li className='flex h-[159px] w-full items-start justify-between rounded-[25px] bg-[#f3f3f3] p-[25px]'>
+		<li className='flex h-[159px] w-full flex-row items-start justify-between rounded-[25px] bg-[#f3f3f3] p-[25px] max-sm:h-[155px] max-sm:flex-col max-sm:rounded-[15px] max-sm:p-[8px]'>
 			<div className='flex flex-col items-start justify-between'>
 				<p className='service__text'>
 					Процедура: {service.procedure.title}

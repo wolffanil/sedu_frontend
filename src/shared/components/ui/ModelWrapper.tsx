@@ -18,7 +18,7 @@ function ModelWrapper({
 	return (
 		<div
 			className={cn(
-				'flex max-h-[950px] min-h-[551px] w-[600px] flex-col items-center rounded-[25px] bg-white px-[32px] pb-[60px] pt-[30px] max-2xl:w-[500px] max-2xl:pt-[15px]',
+				'flex max-h-[950px] min-h-[551px] w-[600px] flex-col items-center rounded-[25px] bg-white px-[32px] pb-[60px] pt-[30px] max-2xl:w-[500px] max-2xl:pt-[15px] max-sm:min-h-[250px] max-sm:w-[358px] max-sm:rounded-[15px] max-sm:px-[22px] max-sm:pb-[20px] max-sm:pt-[20px]',
 				className
 			)}
 		>

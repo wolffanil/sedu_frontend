@@ -64,7 +64,7 @@ function Login({ setIsRegister, onCloseModal }: LoginProps) {
 					onChange={setRecaptchaValue}
 				/>
 			</div>
-			<p className='mt-[5px] text-center font-cormorant_regular text-[24px] text-black max-2xl:text-[22px]'>
+			<p className='mt-[5px] text-center font-cormorant_regular text-[24px] text-black max-2xl:text-[22px] max-sm:text-[16px]'>
 				Нет аккаунта?{' '}
 				<span
 					className='cursor-pointer underline'
@@ -76,7 +76,7 @@ function Login({ setIsRegister, onCloseModal }: LoginProps) {
 			<Button
 				type='submit'
 				disabled={isLoadingLogin || !recaptchaValue}
-				className='max-2xl:text-[22px]'
+				className='max-2xl:text-[22px] max-sm:h-[40px] max-sm:min-w-[236px] max-sm:text-[20px]'
 			>
 				{isLoadingLogin ? 'Загрузка...' : 'Войти'}
 			</Button>

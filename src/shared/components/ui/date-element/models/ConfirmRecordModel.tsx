@@ -41,14 +41,14 @@ function ConfirmRecordModel({
 
 	return (
 		<ModelWrapper
-			className='min-h-[450px] w-[700px] pb-[30px]'
+			className='min-h-[450px] w-[700px] pb-[30px] max-sm:min-h-[316px] max-sm:w-[360px]'
 			onCloseModal={onCloseModal}
 		>
 			<div className='flex w-full flex-col items-center'>
-				<p className='text-center font-cormorant_sc_medium text-[40px] text-black'>
+				<p className='text-center font-cormorant_sc_medium text-[40px] text-black max-sm:mt-[5px] max-sm:text-[20px]'>
 					Подтверждение записи
 				</p>
-				<div className='mt-[20px] w-full gap-x-[10px] text-start font-cormorant_regular text-[32px] text-black'>
+				<div className='mt-[20px] w-full gap-x-[10px] text-start font-cormorant_regular text-[32px] text-black max-sm:mt-[16px] max-sm:text-[20px]'>
 					<p>Услуга: {selectTime.date.service.procedure.title}</p>
 					<p>Дата: {formatDate(selectDate.date)}</p>
 					<p>Время: {selectTime.time}</p>
@@ -56,7 +56,7 @@ function ConfirmRecordModel({
 				</div>
 
 				<Button
-					className='mt-[77px] text-[40px]'
+					className='mt-[77px] text-[40px] max-sm:mt-[16px] max-sm:h-[40px] max-sm:min-w-[236px]'
 					onClick={handleCreateBook}
 					disabled={isLoadingCreateBook}
 				>

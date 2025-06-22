@@ -13,6 +13,7 @@ function Logo() {
 				priority
 				width={53}
 				height={54}
+				className='h-[54px] w-[53px] object-cover max-sm:h-[46px] max-sm:w-[48px]'
 			/>
 		</Link>
 	)

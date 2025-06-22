@@ -8,7 +8,7 @@ import SelectProcedure from './SelectProcedure'
 
 function Record() {
 	return (
-		<section className='mt-[50px] min-h-[100vh] w-full'>
+		<section className='mt-[50px] min-h-[100vh] w-full max-sm:mt-[15px] max-sm:pb-[27px]'>
 			<Suspense>
 				<ChoseRecord type='record' />
 				<SelectProcedure />

@@ -28,13 +28,22 @@ function ExtraActions({
 	const { deleteDate, isDeletingDate } = useDeleteDate(selectDate.id)
 
 	return (
-		<div className='mx-auto mt-[25px] flex items-center justify-center gap-x-[15px]'>
-			<Button onClick={() => setIsEdit(false)} disabled={isDeletingDate}>
+		<div className='mx-auto mt-[25px] flex items-center justify-center gap-x-[15px] max-sm:mt-[10px] max-sm:gap-x-[8px]'>
+			<Button
+				onClick={() => setIsEdit(false)}
+				disabled={isDeletingDate}
+				className='max-sm:h-[40px] max-sm:min-w-[100px] max-sm:text-[16px]'
+			>
 				Сохранить
 			</Button>
 			<Modal>
 				<Modal.Open opens='updateDate' disabled={isDeletingDate}>
-					<Button disabled={isDeletingDate}>Обновить дату</Button>
+					<Button
+						disabled={isDeletingDate}
+						className='max-sm:h-[40px] max-sm:min-w-[120px] max-sm:px-0 max-sm:text-[16px]'
+					>
+						Обновить дату
+					</Button>
 				</Modal.Open>
 				<Modal.Window name='updateDate'>
 					<DateForm
@@ -50,6 +59,7 @@ function ExtraActions({
 					setSelectDate(undefined)
 					setIsEdit(false)
 				}}
+				className='max-sm:h-[40px] max-sm:min-w-[100px] max-sm:px-0 max-sm:text-[16px]'
 			>
 				{isDeletingDate ? 'Загрузка...' : 'Удалить дату'}
 			</Button>

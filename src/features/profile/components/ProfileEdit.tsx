@@ -43,9 +43,9 @@ function ProfileEdit() {
 	return (
 		<form
 			onSubmit={handleSubmit(handleUpdateProfile)}
-			className='flex w-full flex-col items-start gap-y-[40px] rounded-[25px] bg-white px-[75px] py-[75px]'
+			className='relative flex w-full flex-col items-start gap-y-[40px] rounded-[25px] bg-white px-[75px] py-[75px] max-sm:gap-y-[20px] max-sm:p-[16px]'
 		>
-			<div className='flex w-full items-start'>
+			<div className='flex w-full flex-row items-start max-sm:flex-col max-sm:items-center'>
 				<Controller
 					control={control}
 					name='file'
@@ -73,7 +73,20 @@ function ProfileEdit() {
 					)}
 				/>
 
-				<div className='ml-[57px] flex w-[659px] flex-col items-start gap-y-[18px]'>
+				<Image
+					src='/images/edit-pen.svg'
+					unoptimized
+					alt='edit'
+					className='absolute right-[16px] top-[16px] block h-[22px] w-[22px] md:hidden'
+					role='button'
+					tabIndex={1}
+					onClick={() => setIsEdit(true)}
+					priority
+					width={33}
+					height={33}
+				/>
+
+				<div className='ml-[57px] flex w-[659px] flex-col items-start gap-y-[18px] max-sm:ml-0 max-sm:mt-[16px] max-sm:w-full max-sm:items-center max-sm:gap-y-[16px]'>
 					<FieldProfile<IProfileEdit>
 						control={control}
 						name='name'
@@ -107,7 +120,7 @@ function ProfileEdit() {
 						src='/images/edit-pen.svg'
 						unoptimized
 						alt='edit'
-						className='ml-[31px] block h-[33px] w-[33px]'
+						className='ml-[31px] block h-[33px] w-[33px] max-sm:hidden'
 						role='button'
 						tabIndex={1}
 						onClick={() => setIsEdit(true)}
@@ -118,14 +131,19 @@ function ProfileEdit() {
 				) : null}
 			</div>
 			{isEdit ? (
-				<div className='mx-auto flex items-start gap-x-[30px]'>
-					<Button type='submit' disabled={disabledEdit}>
+				<div className='mx-auto flex items-start gap-x-[30px] max-sm:gap-x-[12px]'>
+					<Button
+						type='submit'
+						disabled={disabledEdit}
+						className='max-sm:h-[40px] max-sm:min-w-[120px] max-sm:text-[20px]'
+					>
 						{disabledEdit ? 'Загрузка...' : 'Сохранить'}
 					</Button>
 					<Button
 						type='reset'
 						disabled={disabledEdit}
 						onClick={() => setIsEdit(false)}
+						className='max-sm:h-[40px] max-sm:min-w-[120px] max-sm:text-[20px]'
 					>
 						Отмена
 					</Button>

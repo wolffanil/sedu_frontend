@@ -20,7 +20,7 @@ function Profile() {
 	return (
 		<section
 			className={cn(
-				`mb-[150px] mt-[50px] w-full ${CormorantInfantRegular.variable} ${CormorantScSemibold.variable}`
+				`mb-[150px] mt-[50px] w-full max-sm:mb-[25px] max-sm:mt-[10px] ${CormorantInfantRegular.variable} ${CormorantScSemibold.variable}`
 			)}
 		>
 			<ProfileEdit />

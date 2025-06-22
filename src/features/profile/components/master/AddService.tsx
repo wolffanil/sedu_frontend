@@ -7,7 +7,9 @@ function AddService() {
 	return (
 		<Modal>
 			<Modal.Open opens='createService' className='mx-auto'>
-				<Button className='mt-[22px]'>Добавить услугу</Button>
+				<Button className='mt-[22px] max-sm:mt-[16px] max-sm:h-[40px] max-sm:min-w-[236px] max-sm:text-[20px]'>
+					Добавить услугу
+				</Button>
 			</Modal.Open>
 			<Modal.Window name='createService'>
 				<ServiceForm type='create' />

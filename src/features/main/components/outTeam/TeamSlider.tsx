@@ -16,10 +16,10 @@ function TeamSlider() {
 
 	if (isLoadingTeam)
 		return (
-			<div className='flex w-full items-start justify-between'>
-				<div className='ourTeam__skeleton' />
-				<div className='ourTeam__skeleton' />
-				<div className='ourTeam__skeleton' />
+			<div className='flex items-start justify-between'>
+				<div className='ourTeam__skeleton max-sm:mx-auto' />
+				<div className='ourTeam__skeleton max-sm:hidden' />
+				<div className='ourTeam__skeleton max-sm:hidden' />
 			</div>
 		)
 
@@ -36,7 +36,7 @@ function TeamSlider() {
 					<MasterItem master={master} key={master.id} />
 				))}
 			</CarouselContent>
-			<div className='gap mt-[55px] flex w-full items-start justify-center gap-x-[41px]'>
+			<div className='gap mt-[55px] flex w-full items-start justify-center gap-x-[41px] max-sm:mt-[16px] max-sm:gap-x-[24px]'>
 				<CarouselPrevious />
 				<CarouselNext />
 			</div>

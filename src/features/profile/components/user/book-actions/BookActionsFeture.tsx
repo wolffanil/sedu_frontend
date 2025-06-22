@@ -14,7 +14,7 @@ function BookActionsFeture({ book }: BookActionsFetureProps) {
 
 	return (
 		<Button
-			className='mx-auto mt-[20px] text-[27px]'
+			className='mx-auto mt-[20px] text-[27px] max-sm:mt-[16px] max-sm:h-[40px] max-sm:min-w-[236px] max-sm:text-[20px]'
 			onClick={() => cancelBook()}
 			disabled={isCancelingBook}
 		>

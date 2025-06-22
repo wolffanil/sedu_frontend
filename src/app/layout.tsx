@@ -56,7 +56,7 @@ export default function RootLayout({
 	return (
 		<html lang='ru'>
 			<body
-				className={`${cormorantSc_medium.variable} ${cormorant_regular.variable} ${raleway_regular.variable} ${cormorantSc_regular.variable} ${cormorantSc_semibold.variable} bg-gradient-to-b from-white to-[#B2ACA5] pt-[60px] antialiased`}
+				className={`${cormorantSc_medium.variable} ${cormorant_regular.variable} ${raleway_regular.variable} ${cormorantSc_regular.variable} ${cormorantSc_semibold.variable} antialiasd bg-gradient-to-b from-white to-[#B2ACA5] pt-[60px] max-sm:pt-[41px]`}
 			>
 				<Provider>
 					<Header />

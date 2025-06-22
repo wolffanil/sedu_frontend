@@ -18,7 +18,7 @@ const TabsList = forwardRef<
 	<TabsPrimitive.List
 		ref={ref}
 		className={cn(
-			'mr-auto flex w-full items-start gap-x-[36px]',
+			'mr-auto flex w-full items-start gap-x-[36px] max-sm:mr-0 max-sm:gap-x-[8px]',
 			className
 		)}
 		{...props}
@@ -33,7 +33,7 @@ const TabsTrigger = forwardRef<
 	<TabsPrimitive.Trigger
 		ref={ref}
 		className={cn(
-			'inline-flex w-[295px] items-center justify-center whitespace-nowrap rounded-[25px] bg-[#F3F3F3] py-[12px] font-cormorant_regular text-[28px] text-black transition-all focus-visible:border focus-visible:border-black disabled:pointer-events-none disabled:opacity-50 data-[state=active]:border data-[state=active]:border-black data-[state=active]:shadow',
+			'inline-flex w-[295px] items-center justify-center whitespace-nowrap rounded-[25px] bg-[#F3F3F3] py-[12px] font-cormorant_regular text-[28px] text-black transition-all focus-visible:border focus-visible:border-black disabled:pointer-events-none disabled:opacity-50 data-[state=active]:border data-[state=active]:border-black data-[state=active]:shadow max-sm:w-[114px] max-sm:rounded-[15px] max-sm:py-[8px] max-sm:text-[20px]',
 			className
 		)}
 		{...props}
@@ -47,7 +47,7 @@ const TabsContent = forwardRef<
 >(({ className, ...props }, ref) => (
 	<TabsPrimitive.Content
 		ref={ref}
-		className={cn('mt-[55px] w-full', className)}
+		className={cn('mt-[55px] w-full max-sm:mt-[10px]', className)}
 		{...props}
 	/>
 ))

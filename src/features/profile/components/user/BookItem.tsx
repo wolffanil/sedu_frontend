@@ -26,17 +26,17 @@ function BookItem({ type, book }: BookItemProps) {
 	const bonuses = book.time.date.service.procedure.price * 0.05
 
 	return (
-		<li className='flex w-full flex-col items-start rounded-[25px] bg-[#f3f3f3] p-[25px]'>
+		<li className='flex w-full flex-col items-start rounded-[25px] bg-[#f3f3f3] p-[25px] max-sm:rounded-[15px] max-sm:p-[8px]'>
 			<div className='flex w-full items-center justify-between'>
-				<p className='text-start font-cormorant_sc_semibold text-[28px] font-semibold text-black'>
+				<p className='text-start font-cormorant_sc_semibold text-[28px] font-semibold text-black max-sm:text-[20px]'>
 					{procedureTitle}
 				</p>
-				<p className='text-start font-cormorant_infant_reqular text-[28px] text-black'>
+				<p className='text-start font-cormorant_infant_reqular text-[28px] text-black max-sm:text-[20px]'>
 					{price}₽
 				</p>
 			</div>
-			<ul className='mt-[15px] flex flex-col items-start gap-y-[10px] font-cormorant_infant_reqular text-[25px] text-black'>
-				<li className='flex items-center gap-x-[15px]'>
+			<ul className='mt-[15px] flex flex-col items-start gap-y-[10px] font-cormorant_infant_reqular text-[25px] text-black max-sm:mt-[17px] max-sm:gap-y-[17px] max-sm:text-[20px]'>
+				<li className='flex items-center gap-x-[15px] max-sm:gap-x-[7px]'>
 					<Image
 						src='/images/calendar-mini.svg'
 						alt='calendar'
@@ -46,7 +46,7 @@ function BookItem({ type, book }: BookItemProps) {
 					/>
 					<p>{date}</p>
 				</li>
-				<li className='flex items-center gap-x-[15px]'>
+				<li className='flex items-center gap-x-[15px] max-sm:gap-x-[7px]'>
 					<Image
 						src='/images/time.svg'
 						alt='time'
@@ -56,7 +56,7 @@ function BookItem({ type, book }: BookItemProps) {
 					/>
 					<p>{time}</p>
 				</li>
-				<li className='flex items-center gap-x-[15px]'>
+				<li className='flex items-center gap-x-[15px] max-sm:gap-x-[7px]'>
 					<Image
 						src='/images/location.svg'
 						alt='location'
@@ -68,8 +68,8 @@ function BookItem({ type, book }: BookItemProps) {
 				</li>
 			</ul>
 			{!book?.isActiveBonuses ? (
-				<div className='mx-auto mt-[16px] flex h-[35px] w-[250px] items-center justify-center rounded-[10px] bg-[#9FBCA0]'>
-					<p className='font-cormorant_infant_reqular text-[20px] text-[#1D281D]'>
+				<div className='mx-auto mt-[16px] flex h-[35px] w-[250px] items-center justify-center rounded-[10px] bg-[#9FBCA0] max-sm:h-[35px] max-sm:w-[149px]'>
+					<p className='font-cormorant_infant_reqular text-[20px] text-[#1D281D] max-sm:text-[16px]'>
 						+ {bonuses} БОНУСОВ
 					</p>
 				</div>

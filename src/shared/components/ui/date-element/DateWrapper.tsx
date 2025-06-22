@@ -27,9 +27,9 @@ function DateWrapper({
 }: DateWrapperProps) {
 	return (
 		<CarouselDatePicker>
-			<div className='flex w-[1157px] items-start gap-x-[15px]'>
-				<CarouselPrevious />
-				<CarouselContent className='w-full'>
+			<div className='max-sm:w- flex w-[1157px] items-start gap-x-[15px] max-sm:min-w-full'>
+				<CarouselPrevious className='max-sm:h-[40px] max-sm:w-[62px] max-sm:rounded-[15px]' />
+				<CarouselContent>
 					{dates?.length ? (
 						dates.map(date => (
 							<DateItem
@@ -41,12 +41,12 @@ function DateWrapper({
 							/>
 						))
 					) : (
-						<div className='w-full text-center font-cormorant_regular text-[25px] text-black'>
+						<div className='w-full text-center font-cormorant_regular text-[25px] text-black max-sm:text-[20px]'>
 							Нету дат
 						</div>
 					)}
 				</CarouselContent>
-				<CarouselNext />
+				<CarouselNext className='max-sm:h-[40px] max-sm:w-[62px] max-sm:rounded-[15px]' />
 			</div>
 		</CarouselDatePicker>
 	)

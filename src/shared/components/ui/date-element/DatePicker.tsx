@@ -67,12 +67,12 @@ function DatePicker({ type, dates }: DatePickerProps) {
 	}, [])
 
 	return (
-		<div className='flex w-full flex-col items-center gap-y-[50px]'>
+		<div className='flex w-full flex-col items-center gap-y-[50px] max-sm:gap-y-[16px]'>
 			<div
-				className={`flex w-full flex-col items-start gap-y-[35px] rounded-[25px] bg-[#E6EDE6] p-[25px] ${isShowEdit ? 'hidden' : ''}`}
+				className={`flex w-full flex-col items-start gap-y-[35px] rounded-[25px] bg-[#E6EDE6] p-[25px] max-sm:gap-y-[10px] max-sm:rounded-[15px] max-sm:p-[8px] ${isShowEdit ? 'hidden' : ''}`}
 			>
-				<div className='flex w-full items-start gap-x-[15px]'>
-					<div className='relative flex h-[59px] w-[150px] items-center justify-center rounded-[25px] bg-white'>
+				<div className='flex w-full items-start gap-x-[15px] max-sm:gap-x-[8px]'>
+					<div className='relative flex h-[59px] w-[150px] items-center justify-center rounded-[25px] bg-white max-sm:ml-[6px] max-sm:h-[40px] max-sm:min-w-[62px] max-sm:rounded-[15px]'>
 						<input
 							ref={dateInputRef}
 							type='date'
@@ -88,7 +88,7 @@ function DatePicker({ type, dates }: DatePickerProps) {
 							alt='calendar'
 							width={43}
 							height={41}
-							className='absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform'
+							className='absolute left-1/2 top-1/2 z-10 h-[41px] w-[43px] -translate-x-1/2 -translate-y-1/2 transform max-sm:h-[26px] max-sm:w-[28px]'
 							unoptimized
 							role='button'
 							tabIndex={0}
@@ -144,7 +144,11 @@ function DatePicker({ type, dates }: DatePickerProps) {
 					</Modal>
 				</>
 			) : !isShowEdit ? (
-				<Button disabled={!selectDate?.id} onClick={handleShowEdit}>
+				<Button
+					disabled={!selectDate?.id}
+					onClick={handleShowEdit}
+					className='max-sm:h-[40px] max-sm:min-w-[236px] max-sm:text-[20px]'
+				>
 					{!selectDate?.id ? 'Выберите дату' : 'Редактировать'}
 				</Button>
 			) : (

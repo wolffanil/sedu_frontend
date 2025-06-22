@@ -7,7 +7,7 @@ export const links = [
 	},
 	{
 		title: 'наша команда',
-		link: '#outTeam'
+		link: '/#outTeam'
 	},
 	{
 		title: 'Услуги',

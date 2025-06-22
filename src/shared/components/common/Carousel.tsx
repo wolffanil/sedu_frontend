@@ -212,7 +212,7 @@ const CarouselPrevious = forwardRef<
 		<button
 			ref={ref}
 			className={cn(
-				'flex h-[60px] w-[60px] cursor-pointer items-center justify-center rounded-[25px] border border-black bg-[#F4EFEF]',
+				'flex h-[60px] w-[60px] cursor-pointer items-center justify-center rounded-[25px] border border-black bg-[#F4EFEF] max-sm:h-[40px] max-sm:w-[40px]',
 				className
 			)}
 			disabled={!canScrollPrev}
@@ -241,7 +241,7 @@ const CarouselNext = forwardRef<
 		<button
 			ref={ref}
 			className={cn(
-				'flex h-[60px] w-[60px] cursor-pointer items-center justify-center rounded-[25px] border border-black bg-[#F4EFEF]',
+				'flex h-[60px] w-[60px] cursor-pointer items-center justify-center rounded-[25px] border border-black bg-[#F4EFEF] max-sm:h-[40px] max-sm:w-[40px]',
 				className
 			)}
 			disabled={!canScrollNext}

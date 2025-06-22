@@ -56,19 +56,22 @@ function ServiceForm({ onCloseModal, type, service }: ServiceFormProps) {
 		isUpdatingService || isCreatingService || isLoadingProcedure
 
 	return (
-		<ModelWrapper onCloseModal={onCloseModal} className='max-2xl:w-[723px]'>
+		<ModelWrapper
+			onCloseModal={onCloseModal}
+			className='max-2xl:w-[723px] max-sm:w-[359px]'
+		>
 			<form
 				onSubmit={handleSubmit(
 					type === 'create'
 						? handleCreateService
 						: handleUpdateService
 				)}
-				className='mt-[21px] flex w-full flex-col items-center'
+				className='mt-[21px] flex w-full flex-col items-center max-sm:mt-[2px]'
 			>
-				<h2 className='text-center font-cormorant_regular text-[48px] text-black'>
+				<h2 className='text-center font-cormorant_regular text-[48px] text-black max-sm:text-[20px]'>
 					{type === 'create' ? 'Добавление' : 'Редактирование'} услуги
 				</h2>
-				<div className='mt-[50px] flex w-full flex-col items-start gap-y-[20px]'>
+				<div className='mt-[50px] flex w-full flex-col items-start gap-y-[20px] max-sm:mt-[16px] max-sm:gap-y-[16px]'>
 					<Field<ServiceSchemaType>
 						control={control}
 						name='address'
@@ -97,7 +100,7 @@ function ServiceForm({ onCloseModal, type, service }: ServiceFormProps) {
 
 				<Button
 					type='submit'
-					className='mt-[50px]'
+					className='mt-[50px] max-sm:mt-[16px] max-sm:h-[40px] max-sm:min-w-[236px] max-sm:text-[20px]'
 					disabled={isLoading}
 				>
 					{isLoading

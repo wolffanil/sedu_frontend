@@ -43,20 +43,20 @@ function TimeItem({ time, dateId }: TimeItemProps) {
 	const disabled = isUpdatingTime || !isEdit
 
 	return (
-		<li className='min-h-[59px] w-full rounded-[25px] bg-[#f3f3f3] px-[20px] py-[8px]'>
+		<li className='min-h-[59px] w-full rounded-[25px] bg-[#f3f3f3] px-[20px] py-[8px] max-sm:min-h-[48px] max-sm:rounded-[15px] max-sm:px-[8px] max-sm:py-[6px]'>
 			<form
 				onSubmit={handleSubmit(handleUpdateTime)}
-				className='flex h-full w-full items-center justify-between gap-x-[10px]'
+				className='flex h-full w-full items-center justify-between gap-x-[10px] max-sm:gap-x-[8px]'
 			>
 				<Field
 					control={control}
 					name='time'
 					disabled={disabled}
-					classNameInput='text-[28px] bg-[#f3f3f3] px-[30px] outline-[#4F6550]'
+					classNameInput='text-[28px] bg-[#f3f3f3] px-[30px] outline-[#4F6550] max-sm:text-[20px] max-sm:px-[10px] h-full'
 					type='time'
 				/>
 				<div
-					className={`flex items-center gap-x-[25px] ${isEdit ? 'gap-x-0' : ''}`}
+					className={`flex items-center gap-x-[25px] max-sm:gap-x-[16px] ${isEdit ? 'gap-x-0' : ''}`}
 				>
 					{!isEdit ? (
 						<button
@@ -64,20 +64,23 @@ function TimeItem({ time, dateId }: TimeItemProps) {
 							type='button'
 							onClick={() => setIsEdit(true)}
 						>
-							<Image
-								src='/images/edit-pen.svg'
-								alt='delete'
-								unoptimized
-								width={33}
-								height={33}
-							/>
+							<div className='flex items-center justify-center rounded-[10px] bg-green-dark px-[8px] py-[5px]'>
+								<Image
+									src='/images/edit-pen-white.svg'
+									alt='delete'
+									unoptimized
+									width={33}
+									height={33}
+									className='min-h-[33px] min-w-[33px] max-sm:min-h-[26px] max-sm:min-w-[26px]'
+								/>
+							</div>
 						</button>
 					) : (
-						<div className='flex items-center gap-x-[15px]'>
+						<div className='flex items-center gap-x-[15px] max-sm:gap-x-[8px]'>
 							<Button
 								type='submit'
 								disabled={isUpdatingTime}
-								className='h-[40px] min-w-[150px]'
+								className='h-[40px] min-w-[150px] max-sm:h-[36px] max-sm:min-w-[90px] max-sm:px-[0] max-sm:text-[16px]'
 							>
 								{isUpdatingTime ? 'Загрузка...' : 'Сохранить'}
 							</Button>
@@ -85,17 +88,19 @@ function TimeItem({ time, dateId }: TimeItemProps) {
 								type='button'
 								disabled={isUpdatingTime}
 								onClick={() => setIsEdit(false)}
-								className='h-[40px] min-w-[150px]'
+								className='h-[40px] min-w-[150px] max-sm:h-[36px] max-sm:min-w-[80px] max-sm:px-0 max-sm:text-[16px]'
 							>
 								{isUpdatingTime ? 'Загрузка...' : 'Отменить'}
 							</Button>
 						</div>
 					)}
-					<TimeDelete
-						dateId={dateId}
-						timeId={time.id}
-						isUpdatingTime={isUpdatingTime}
-					/>
+					{!isEdit ? (
+						<TimeDelete
+							dateId={dateId}
+							timeId={time.id}
+							isUpdatingTime={isUpdatingTime}
+						/>
+					) : null}
 				</div>
 			</form>
 		</li>

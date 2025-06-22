@@ -40,15 +40,15 @@ function CancelBookModel({ time, onCloseModal }: CancelBookModelProps) {
 
 	return (
 		<ModelWrapper
-			className='min-h-[288px] w-[1272px] p-[25px]'
+			className='min-h-[288px] w-[1272px] p-[25px] max-sm:w-[359px]'
 			onCloseModal={onCloseModal}
 		>
 			<div className='flex w-full flex-col items-start'>
-				<h2 className='text-start font-cormorant_sc_semibold text-[28px] font-semibold text-black'>
+				<h2 className='text-start font-cormorant_sc_semibold text-[28px] font-semibold text-black max-sm:w-full max-sm:text-center max-sm:text-[20px]'>
 					{procedureTitle}
 				</h2>
-				<div className='mt-[15px] flex flex-col items-start gap-y-[10px]'>
-					<div className='flex items-center gap-x-[15px]'>
+				<div className='mt-[15px] flex flex-col items-start gap-y-[10px] max-sm:gap-y-[8px]'>
+					<div className='flex items-center gap-x-[15px] max-sm:gap-x-[4px]'>
 						<Image
 							src='/images/calendar-mini.svg'
 							alt='calender'
@@ -56,12 +56,12 @@ function CancelBookModel({ time, onCloseModal }: CancelBookModelProps) {
 							height={20}
 							unoptimized
 						/>
-						<p className='font-cormorant_regular text-[25px] text-black'>
+						<p className='font-cormorant_regular text-[25px] text-black max-sm:text-[20px]'>
 							{date}
 						</p>
 					</div>
 
-					<div className='flex items-center gap-x-[15px]'>
+					<div className='flex items-center gap-x-[15px] max-sm:gap-x-[4px]'>
 						<Image
 							src='/images/time.svg'
 							alt='time'
@@ -69,12 +69,12 @@ function CancelBookModel({ time, onCloseModal }: CancelBookModelProps) {
 							height={20}
 							unoptimized
 						/>
-						<p className='font-cormorant_regular text-[25px] text-black'>
+						<p className='font-cormorant_regular text-[25px] text-black max-sm:text-[20px]'>
 							{timeBook}
 						</p>
 					</div>
 				</div>
-				<div className='mt-[10px] flex items-center gap-x-[20px] text-[25px] text-black'>
+				<div className='mt-[10px] flex items-center gap-x-[20px] text-[25px] text-black max-sm:mt-[7px] max-sm:gap-x-[15px] max-sm:text-[20px]'>
 					<p className='font-cormorant_regular'>{userData}</p>
 					<p className='font-cormorant_regular'>{phone}</p>
 				</div>
@@ -82,7 +82,7 @@ function CancelBookModel({ time, onCloseModal }: CancelBookModelProps) {
 				<Button
 					disabled={isCancelingBook}
 					onClick={() => cancelBook()}
-					className='mx-auto mt-[20px] text-[28px]'
+					className='mx-auto mt-[20px] text-[28px] max-sm:mt-[17px] max-sm:h-[40px] max-sm:w-[236px] max-sm:text-[20px]'
 				>
 					{isCancelingBook ? 'Загрузка...' : 'Отменить запись'}
 				</Button>

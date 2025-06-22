@@ -12,7 +12,7 @@ function ChoseRecord({ className, type }: ChoseRecordProps) {
 	return (
 		<ul
 			className={cn(
-				'flex items-start justify-start gap-x-[36px]',
+				'flex items-start justify-start gap-x-[36px] max-sm:gap-x-[8px]',
 				className ? className : ''
 			)}
 		>

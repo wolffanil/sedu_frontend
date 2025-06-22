@@ -16,7 +16,7 @@ function WrapperAuth({ onCloseModal }: WrapperAuthProps) {
 
 	return (
 		<ModelWrapper onCloseModal={onCloseModal}>
-			<p className='mt-[21px] pb-[20px] text-center font-cormorant_regular text-[44px] text-black max-2xl:text-[40px]'>
+			<p className='mt-[21px] pb-[20px] text-center font-cormorant_regular text-[44px] text-black max-2xl:text-[40px] max-sm:pb-[16px] max-sm:text-[20px]'>
 				{isRegister ? 'Регистрация' : 'Авторизация'}
 			</p>
 			{isRegister ? (

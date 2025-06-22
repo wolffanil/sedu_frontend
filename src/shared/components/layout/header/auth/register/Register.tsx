@@ -45,7 +45,7 @@ function Register({ setIsRegister, onCloseModal }: RegisterProps) {
 
 	return (
 		<form
-			className='flex w-full flex-col items-center gap-y-[20px] max-2xl:gap-y-[15px]'
+			className='flex w-full flex-col items-center gap-y-[20px] max-2xl:gap-y-[15px] max-sm:gap-y-[16px]'
 			onSubmit={handleSubmit(handleRegister)}
 		>
 			<Field<IRegister> control={control} name='name' placeholder='Имя' />
@@ -77,7 +77,7 @@ function Register({ setIsRegister, onCloseModal }: RegisterProps) {
 					onChange={setRecaptchaValue}
 				/>
 			</div>
-			<p className='mt-[5px] text-center font-cormorant_regular text-[24px] text-black max-2xl:text-[22px]'>
+			<p className='mt-[5px] text-center font-cormorant_regular text-[24px] text-black max-2xl:text-[22px] max-sm:mt-[16px] max-sm:text-[16px]'>
 				Есть аккаунта?{' '}
 				<span
 					className='cursor-pointer underline'
@@ -89,7 +89,7 @@ function Register({ setIsRegister, onCloseModal }: RegisterProps) {
 			<Button
 				type='submit'
 				disabled={isLoadingRegister || !recaptchaValue}
-				className='max-2xl:text-[22px]'
+				className='max-2xl:text-[22px] max-sm:h-[40px] max-sm:min-w-[236px] max-sm:text-[20px]'
 			>
 				{isLoadingRegister ? 'Загрузка...' : 'Зарегистрироваться'}
 			</Button>

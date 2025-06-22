@@ -125,7 +125,7 @@ const SelectItem = forwardRef<
 	<SelectPrimitive.Item
 		ref={ref}
 		className={cn(
-			'flex h-[50px] w-full items-center justify-center bg-[#f3f3f3] font-cormorant_regular text-[25px] text-[#1D281D]',
+			'flex h-[50px] w-full items-center justify-center bg-[#f3f3f3] font-cormorant_regular text-[25px] text-[#1D281D] max-sm:text-[20px]',
 			className
 		)}
 		{...props}

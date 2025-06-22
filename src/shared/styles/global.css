@@ -22,43 +22,43 @@
 
 @layer components {
 	.header__link {
-		@apply cursor-pointer font-cormorant_sc_medium text-[25px] text-white;
+		@apply cursor-pointer font-cormorant_sc_medium text-[25px] text-white max-sm:text-[20px] max-sm:text-black;
 	}
 
 	.input {
-		@apply h-[45px] w-full rounded-[25px] bg-[#E6EDE6] px-[50px] font-raleway_regular text-[25px] text-black max-2xl:h-[35px] max-2xl:text-[20px];
+		@apply h-[45px] w-full rounded-[25px] bg-[#E6EDE6] px-[50px] font-raleway_regular text-[25px] text-black max-2xl:h-[35px] max-2xl:text-[20px] max-sm:h-[45px] max-sm:rounded-[15px] max-sm:px-[24px] max-sm:text-[16px];
 	}
 
 	.input__service {
-		@apply h-[65px] text-[25px];
+		@apply h-[65px] text-[25px] max-sm:h-[45px] max-sm:text-[16px];
 	}
 
 	.input_profile {
-		@apply h-[73px] w-full rounded-[25px] bg-green-bright px-[22px] font-cormorant_regular text-[25px] text-[#1D281D];
+		@apply h-[73px] w-full rounded-[25px] bg-green-bright px-[22px] font-cormorant_regular text-[25px] text-[#1D281D] max-sm:h-[45px] max-sm:rounded-[15px] max-sm:px-[12px] max-sm:text-[20px];
 	}
 
 	.input__message_error {
-		@apply font-raleway_regular text-[14px] text-red-500;
+		@apply font-raleway_regular text-[14px] text-red-500 max-sm:text-[12px];
 	}
 
 	.container {
-		@apply mx-auto max-w-[1372px];
+		@apply mx-auto max-w-[1372px] max-sm:max-w-[358px];
 	}
 
 	.title {
-		@apply text-center font-cormorant_sc_regular text-[48px] text-black;
+		@apply text-center font-cormorant_sc_regular text-[48px] text-black max-sm:text-[24px];
 	}
 
 	.aboutus__image {
-		@apply transform rounded-[25px] object-cover object-top transition-transform duration-300 hover:scale-110;
+		@apply transform rounded-[25px] object-cover object-top transition-transform duration-300 hover:scale-110 max-sm:rounded-[15px];
 	}
 
 	.outTeam__skeleton {
-		@apply h-[587px] w-[404px] rounded-[25px] bg-[#dcd9d4];
+		@apply h-[587px] w-[404px] rounded-[25px] bg-[#dcd9d4] max-sm:h-[254px] max-sm:w-[175px] max-sm:rounded-[15px];
 	}
 
 	.goods__skeleton {
-		@apply h-[697px] w-[403px] rounded-[25px] bg-[#dcd9d4];
+		@apply h-[697px] w-[403px] rounded-[25px] bg-[#dcd9d4] max-sm:h-[300px] max-sm:w-[175px] max-sm:rounded-[15px];
 	}
 
 	.reviews__skeleton {
@@ -66,7 +66,7 @@
 	}
 
 	.service__text {
-		@apply text-start font-cormorant_regular text-[25px] font-medium text-black;
+		@apply text-start font-cormorant_regular text-[25px] font-medium text-black max-sm:text-[20px];
 	}
 }
 
@@ -80,5 +80,5 @@
 }
 
 ::-webkit-scrollbar-track {
-	background-color: #ffffff;
+	background-color: transparent;
 }

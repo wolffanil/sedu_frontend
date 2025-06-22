@@ -29,9 +29,9 @@ function TimeWrapper({
 }: TimeWrapperProps) {
 	return (
 		<CarouselDatePicker>
-			<div className='flex w-full items-start gap-x-[15px]'>
-				<CarouselPrevious />
-				<CarouselContent className='w-full'>
+			<div className='flex w-full items-start gap-x-[15px] max-sm:min-w-full max-sm:gap-x-[8px]'>
+				<CarouselPrevious className='max-sm:h-[40px] max-sm:w-[62px] max-sm:rounded-[15px]' />
+				<CarouselContent className='w-full max-sm:min-w-full max-sm:gap-x-[8px]'>
 					{times?.length ? (
 						times.map(time => (
 							<TimeItem
@@ -43,14 +43,14 @@ function TimeWrapper({
 							/>
 						))
 					) : (
-						<div className='w-full text-center font-cormorant_regular text-[25px] text-black'>
+						<div className='w-full text-center font-cormorant_regular text-[25px] text-black max-sm:text-[20px]'>
 							{isDateSelect
 								? 'Нету время на эту дату'
 								: 'Выберите дату'}
 						</div>
 					)}
 				</CarouselContent>
-				<CarouselNext />
+				<CarouselNext className='max-sm:h-[40px] max-sm:w-[62px] max-sm:rounded-[15px]' />
 			</div>
 		</CarouselDatePicker>
 	)

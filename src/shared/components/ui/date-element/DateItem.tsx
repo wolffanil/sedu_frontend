@@ -22,11 +22,11 @@ function DateItem({ date, selectDate, handleSelectDate, type }: DateItemProps) {
 	const isSelect = date.id === selectDate?.id
 
 	return (
-		<CarouselItem className='basis-1/7'>
+		<CarouselItem className='basis-1/7 max-sm:basis-1/3 max-sm:px-[8px]'>
 			<li>
 				<button
 					className={cn(
-						'flex w-[150px] flex-col items-center rounded-[25px] bg-white py-1 font-cormorant_sc_medium text-[28px] text-black',
+						'flex w-[150px] flex-col items-center rounded-[25px] bg-white py-1 font-cormorant_sc_medium text-[28px] text-black max-sm:w-[62px] max-sm:rounded-[15px] max-sm:text-[20px]',
 						{
 							'border border-black': isSelect
 						}
@@ -34,7 +34,7 @@ function DateItem({ date, selectDate, handleSelectDate, type }: DateItemProps) {
 					onClick={() => handleSelectDate(date)}
 					disabled={isSelect}
 				>
-					<span className='leading-[25px]'>
+					<span className='leading-[25px] max-sm:leading-[18px]'>
 						{monthAndDay} <br /> {week}
 					</span>
 				</button>

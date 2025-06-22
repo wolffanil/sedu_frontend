@@ -55,18 +55,18 @@ function DateForm({
 	return (
 		<ModelWrapper
 			onCloseModal={onCloseModal}
-			className='min-h-[400px] max-2xl:w-[723px]'
+			className='min-h-[400px] max-2xl:w-[723px] max-sm:min-h-[200px] max-sm:w-[359px]'
 		>
 			<form
 				onSubmit={handleSubmit(
 					type === 'create' ? handleCreateDate : handleUpdateDate
 				)}
-				className='mt-[21px] flex w-full flex-col items-center'
+				className='mt-[21px] flex w-full flex-col items-center max-sm:mt-[1px]'
 			>
-				<h2 className='text-center font-cormorant_regular text-[48px] text-black'>
+				<h2 className='text-center font-cormorant_regular text-[48px] text-black max-sm:text-[20px]'>
 					{type === 'create' ? 'Добавление' : 'Редактирование'} даты
 				</h2>
-				<div className='mt-[50px] flex w-full flex-col items-start gap-y-[20px]'>
+				<div className='mt-[50px] flex w-full flex-col items-start gap-y-[20px] max-sm:mt-[16px] max-sm:gap-y-[16px]'>
 					<Field
 						control={control}
 						name='date'
@@ -79,7 +79,7 @@ function DateForm({
 
 				<Button
 					type='submit'
-					className='mt-[50px]'
+					className='mt-[50px] max-sm:mt-[16px] max-sm:h-[40px] max-sm:min-w-[236px] max-sm:text-[20px]'
 					disabled={isLoading}
 				>
 					{isLoading

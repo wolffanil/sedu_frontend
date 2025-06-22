@@ -37,7 +37,7 @@ const FieldProfile = <T extends Record<string, any>>({
 					{error && (
 						<p
 							className={cn(
-								'input__message_error mt-[8px]',
+								'input__message_error mt-[8px] max-sm:mt-[4px]',
 								classNameInputError
 							)}
 						>

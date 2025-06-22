@@ -42,7 +42,7 @@ const ProfileUploader = ({
 				accept='image/gif, image/jpeg, image/webp, image/jpeg'
 			/>
 
-			<div className='flex cursor-pointer flex-col items-center gap-y-[15px]'>
+			<div className='flex cursor-pointer flex-col items-center gap-y-[15px] max-sm:gap-y-[8px]'>
 				<img
 					src={
 						fileUrl?.split('/')?.includes('photos')
@@ -50,10 +50,10 @@ const ProfileUploader = ({
 							: fileUrl
 					}
 					alt='image'
-					className='h-[442px] w-[442px] rounded-[25px] object-cover object-top'
+					className='h-[442px] w-[442px] rounded-[25px] object-cover object-top max-sm:size-[134px]'
 				/>
 				{isEdit ? (
-					<p className='font-cormorant_sc_medium text-[25px] text-black'>
+					<p className='font-cormorant_sc_medium text-[25px] text-black max-sm:text-[16px]'>
 						Изменить фотографию профиля
 					</p>
 				) : null}

@@ -35,7 +35,7 @@ function SelectProcedure() {
 			value={pId ? pId : undefined}
 			key={sType}
 		>
-			<SelectTrigger className='mb-[25px] mt-[50px] h-[59px] min-w-[300px] rounded-[25px] border-none bg-green-dark font-cormorant_regular text-[28px] text-white focus:ring-0'>
+			<SelectTrigger className='mb-[25px] mt-[50px] h-[59px] min-w-[300px] rounded-[25px] border-none bg-green-dark font-cormorant_regular text-[28px] text-white focus:ring-0 max-sm:mb-[16px] max-sm:mt-[16px] max-sm:h-[40px] max-sm:min-w-full max-sm:rounded-[15px] max-sm:text-[20px]'>
 				<SelectValue
 					placeholder={
 						!sType
@@ -50,7 +50,9 @@ function SelectProcedure() {
 			</SelectTrigger>
 			<SelectContent>
 				<SelectGroup className='bg-white'>
-					<SelectLabel>Процедуры</SelectLabel>
+					<SelectLabel className='max-sm:text-[20px]'>
+						Процедуры
+					</SelectLabel>
 					{procedures?.map(p => (
 						<SelectProcedureItem procedure={p} key={p.id} />
 					))}
