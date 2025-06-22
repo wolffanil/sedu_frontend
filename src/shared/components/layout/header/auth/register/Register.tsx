@@ -1,7 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { useForm } from 'react-hook-form'
 
@@ -21,6 +21,7 @@ interface RegisterProps {
 
 function Register({ setIsRegister, onCloseModal }: RegisterProps) {
 	const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null)
+	const recaptchaRef = useRef<ReCAPTCHA>(null)
 	const { control, handleSubmit, reset, setError } = useForm<IRegister>({
 		resolver: zodResolver(registerSchema),
 		defaultValues: {
@@ -39,8 +40,17 @@ function Register({ setIsRegister, onCloseModal }: RegisterProps) {
 		setIsRegister(false)
 	}, [])
 
-	function handleRegister(value: IRegister) {
-		register({ data: value, recaptcha: recaptchaValue ?? undefined })
+	async function handleRegister(value: IRegister) {
+		try {
+			await register({
+				data: value,
+				recaptcha: recaptchaValue ?? undefined
+			})
+		} catch {
+		} finally {
+			recaptchaRef?.current?.reset()
+			setRecaptchaValue(null)
+		}
 	}
 
 	return (
@@ -74,6 +84,7 @@ function Register({ setIsRegister, onCloseModal }: RegisterProps) {
 			<div className='flex justify-center'>
 				<ReCAPTCHA
 					sitekey={GOOGLE_RECAPTCHA_SITE_KEY as string}
+					ref={recaptchaRef}
 					onChange={setRecaptchaValue}
 				/>
 			</div>

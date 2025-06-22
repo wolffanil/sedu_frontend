@@ -1,7 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { useForm } from 'react-hook-form'
 
@@ -19,6 +19,7 @@ interface LoginProps {
 
 function Login({ setIsRegister, onCloseModal }: LoginProps) {
 	const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null)
+	const recaptchaRef = useRef<ReCAPTCHA>(null)
 
 	const { control, handleSubmit, reset, setError } = useForm<ILogin>({
 		resolver: zodResolver(loginSchema),
@@ -34,8 +35,14 @@ function Login({ setIsRegister, onCloseModal }: LoginProps) {
 		setIsRegister(true)
 	}, [])
 
-	function handleLogin(value: ILogin) {
-		login({ data: value, recaptcha: recaptchaValue ?? undefined })
+	async function handleLogin(value: ILogin) {
+		try {
+			await login({ data: value, recaptcha: recaptchaValue ?? undefined })
+		} catch {
+		} finally {
+			recaptchaRef.current?.reset()
+			setRecaptchaValue(null)
+		}
 	}
 
 	return (
@@ -61,6 +68,7 @@ function Login({ setIsRegister, onCloseModal }: LoginProps) {
 			<div className='flex justify-center'>
 				<ReCAPTCHA
 					sitekey={process.env.GOOGLE_RECAPTCHA_SITE_KEY as string}
+					ref={recaptchaRef}
 					onChange={setRecaptchaValue}
 				/>
 			</div>

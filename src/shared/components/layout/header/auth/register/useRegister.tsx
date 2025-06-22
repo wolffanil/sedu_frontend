@@ -16,46 +16,48 @@ export function useRegister(
 ) {
 	const { setUser, setIsAuth } = useAuth()
 
-	const { mutate: register, isPending: isLoadingRegister } = useMutation({
-		mutationKey: [QUERY_KEYS.REGISTER],
-		mutationFn: ({
-			data,
-			recaptcha
-		}: {
-			data: IRegister
-			recaptcha?: string
-		}) => AuthService.register(data, recaptcha),
-		onSuccess: data => {
-			reset()
-			setUser(data.user)
-			setIsAuth(true)
-			onCloseModal?.()
-			toast.success('Вы успешно зарегистрировались')
-		},
-		onError: (error: any) => {
-			const errorMessage = getErrorMessage(error)
-			if (
-				errorMessage.type === 'message' &&
-				typeof errorMessage.error === 'string'
-			) {
-				toast.error(errorMessage.error)
-				return
-			}
+	const { mutateAsync: register, isPending: isLoadingRegister } = useMutation(
+		{
+			mutationKey: [QUERY_KEYS.REGISTER],
+			mutationFn: ({
+				data,
+				recaptcha
+			}: {
+				data: IRegister
+				recaptcha?: string
+			}) => AuthService.register(data, recaptcha),
+			onSuccess: data => {
+				reset()
+				setUser(data.user)
+				setIsAuth(true)
+				onCloseModal?.()
+				toast.success('Вы успешно зарегистрировались')
+			},
+			onError: (error: any) => {
+				const errorMessage = getErrorMessage(error)
+				if (
+					errorMessage.type === 'message' &&
+					typeof errorMessage.error === 'string'
+				) {
+					toast.error(errorMessage.error)
+					return
+				}
 
-			if (
-				errorMessage.type === 'form' &&
-				Array.isArray(errorMessage.error)
-			) {
-				errorMessage.error.forEach(obj => {
-					//@ts-ignore
-					setError(obj.field, {
-						message: obj.message
+				if (
+					errorMessage.type === 'form' &&
+					Array.isArray(errorMessage.error)
+				) {
+					errorMessage.error.forEach(obj => {
+						//@ts-ignore
+						setError(obj.field, {
+							message: obj.message
+						})
 					})
-				})
-				return
+					return
+				}
 			}
 		}
-	})
+	)
 
 	return useMemo(
 		() => ({
