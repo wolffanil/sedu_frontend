@@ -24,7 +24,7 @@ function TimeItem({ type, time, selectTime, handleSelectTime }: TimeItemProps) {
 	const isDisabledRecord = isRecord && time.isBusy
 
 	return (
-		<CarouselItem className='basis-1/8 max-sm:mx-[8px] max-sm:basis-1/6'>
+		<CarouselItem className='basis-1/8 max-sm:mx-[8px] max-sm:w-[110px] max-sm:basis-1/6'>
 			<Modal>
 				<Modal.Open
 					disabled={isRecord || !time?.isBusy}

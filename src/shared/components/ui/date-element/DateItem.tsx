@@ -22,8 +22,8 @@ function DateItem({ date, selectDate, handleSelectDate, type }: DateItemProps) {
 	const isSelect = date.id === selectDate?.id
 
 	return (
-		<CarouselItem className='basis-1/7 max-sm:basis-1/3 max-sm:px-[8px]'>
-			<li>
+		<CarouselItem className='basis-1/7 max-sm:h-[46px] max-sm:w-[102px] max-sm:basis-1/3'>
+			<li className='max-sm:ml-[8px]'>
 				<button
 					className={cn(
 						'flex w-[150px] flex-col items-center rounded-[25px] bg-white py-1 font-cormorant_sc_medium text-[28px] text-black max-sm:w-[62px] max-sm:rounded-[15px] max-sm:text-[20px]',

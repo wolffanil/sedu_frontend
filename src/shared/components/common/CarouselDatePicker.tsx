@@ -194,7 +194,9 @@ const CarouselItem = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 				aria-roledescription='slide'
 				className={cn(
 					'min-w-0 shrink-0 grow-0 basis-full',
-					orientation === 'horizontal' ? 'pr-[15px]' : 'pt-4',
+					orientation === 'horizontal'
+						? 'pr-[15px] max-sm:pr-0'
+						: 'pt-4',
 					className
 				)}
 				{...props}
@@ -229,7 +231,7 @@ const CarouselPrevious = forwardRef<
 				width={20}
 				height={13}
 				unoptimized
-				className='rotate-180'
+				className='rotate-180 max-sm:w-[12px]'
 			/>
 		</button>
 	)
@@ -261,6 +263,7 @@ const CarouselNext = forwardRef<
 				width={20}
 				height={12}
 				unoptimized
+				className='max-sm:w-[12px]'
 			/>
 		</button>
 	)

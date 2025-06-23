@@ -6,6 +6,7 @@ import { DateSerice } from '@/features/record/services/date.service'
 
 import { MUTATION_KEYS } from '@/shared/enums/mutation.keys'
 import { QUERY_KEYS } from '@/shared/enums/query.keys'
+import { getErrorMessage } from '@/shared/services/api/getErrorMessage.api'
 
 export function useDeleteDate(dateId: string) {
 	const queryClient = useQueryClient()
@@ -13,8 +14,14 @@ export function useDeleteDate(dateId: string) {
 	const { mutateAsync: deleteDate, isPending: isDeletingDate } = useMutation({
 		mutationKey: [MUTATION_KEYS.DELETE_DATE],
 		mutationFn: () => DateSerice.delete(dateId),
-		onSettled: () => {
+		onSuccess: () => {
 			toast.success('Дата успешно удалена')
+		},
+		onError: (error: any) => {
+			const errorMessage = getErrorMessage(error)
+			toast.error(errorMessage.error as string)
+		},
+		onSettled: () => {
 			queryClient.refetchQueries({
 				queryKey: [QUERY_KEYS.AUTH, QUERY_KEYS.DATES_MASTER]
 			})
