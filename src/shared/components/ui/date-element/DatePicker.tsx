@@ -2,7 +2,8 @@
 
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import { useCallback, useRef, useState } from 'react'
+import { useQueryState } from 'nuqs'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { useGetTimes } from '@/shared/hooks/useGetTimes'
 import { type IDate } from '@/shared/types/dates.interface'
@@ -33,6 +34,17 @@ function DatePicker({ type, dates }: DatePickerProps) {
 	const [selectTime, setSelectTime] = useState<ITime | undefined>(undefined)
 
 	const [isShowEdit, setIsShowEdit] = useState(false)
+
+	const [pId] = useQueryState('p-id')
+	const [sType] = useQueryState('s-type')
+
+	useEffect(() => {
+		if (type !== 'master') return
+		setIsShowEdit(false)
+		setSelectDate(undefined)
+		setSelectTime(undefined)
+		setDateTime(undefined)
+	}, [pId, sType])
 
 	const dateInputRef = useRef<HTMLInputElement>(null)
 
