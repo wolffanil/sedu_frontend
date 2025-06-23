@@ -18,6 +18,7 @@ interface TimeWrapperProps {
 	selectTime: ITime | undefined
 	handleSelectTime: (time: ITime) => void
 	isDateSelect: boolean
+	isLoadingTimes: boolean
 }
 
 function TimeWrapper({
@@ -25,7 +26,8 @@ function TimeWrapper({
 	type,
 	selectTime,
 	handleSelectTime,
-	isDateSelect
+	isDateSelect,
+	isLoadingTimes
 }: TimeWrapperProps) {
 	return (
 		<CarouselDatePicker>
@@ -44,9 +46,11 @@ function TimeWrapper({
 						))
 					) : (
 						<div className='w-full text-center font-cormorant_regular text-[25px] text-black max-sm:text-[20px]'>
-							{isDateSelect
-								? 'Нету время на эту дату'
-								: 'Выберите дату'}
+							{!isLoadingTimes
+								? isDateSelect
+									? 'Нету время на эту дату'
+									: 'Выберите дату'
+								: 'Загрузка...'}
 						</div>
 					)}
 				</CarouselContent>

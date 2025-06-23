@@ -46,6 +46,20 @@ function DatePicker({ type, dates }: DatePickerProps) {
 		setDateTime(undefined)
 	}, [pId, sType])
 
+	useEffect(() => {
+		if (type !== 'master') return
+		const currentDate = dates?.find(
+			date =>
+				new Date(date.date).getTime() ===
+				new Date(dateTime || '').getTime()
+		)
+
+		if (currentDate?.id) {
+			setSelectDate({ ...currentDate })
+			setSelectTime(undefined)
+		}
+	}, [dateTime])
+
 	const dateInputRef = useRef<HTMLInputElement>(null)
 
 	const { isLoadingTimes, times } = useGetTimes(
@@ -120,6 +134,7 @@ function DatePicker({ type, dates }: DatePickerProps) {
 					selectTime={selectTime}
 					handleSelectTime={handleSelectTime}
 					times={times}
+					isLoadingTimes={isLoadingTimes}
 				/>
 			</div>
 

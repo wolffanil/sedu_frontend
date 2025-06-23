@@ -15,7 +15,7 @@ export const useGetTimes = (
 		{
 			queryKey: [QUERY_KEYS.GET_TIMES_BY_DATE_ID, dateId],
 			queryFn: () => TimeSerice.getTimesByDateId(dateId || ''),
-			enabled: !!dateId && !dateTime,
+			enabled: !isRecord ? !!dateId : !!dateId && !dateTime,
 			staleTime: 5 * 60 * 1000
 
 			// select: data => {
@@ -30,7 +30,7 @@ export const useGetTimes = (
 		useQuery({
 			queryKey: [QUERY_KEYS.GET_TIMES_BY_DATE_TIME, dateTime],
 			queryFn: () => TimeSerice.getTimesByDateTime(dateTime || ''),
-			enabled: !dateId && !!dateTime,
+			enabled: !dateId && !!dateTime && isRecord,
 			staleTime: 5 * 60 * 1000
 			// select: data => {
 			// 	if (!isRecord) return data
