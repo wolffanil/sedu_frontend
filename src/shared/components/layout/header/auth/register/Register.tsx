@@ -104,6 +104,13 @@ function Register({ setIsRegister, onCloseModal }: RegisterProps) {
 			>
 				{isLoadingRegister ? 'Загрузка...' : 'Зарегистрироваться'}
 			</Button>
+
+			<div className='isCreatingService mt-[15px] flex gap-x-[12px] max-sm:mt-[2px] max-sm:gap-x-[6px]'>
+				<input type='checkbox' required className='h-[30px] w-[30px]' />
+				<p className='font-cormorant_sc_medium text-[18px] font-medium max-sm:text-[14px]'>
+					Я подтверждаю своё согласие на обработку персональных данных
+				</p>
+			</div>
 		</form>
 	)
 }
