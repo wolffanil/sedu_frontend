@@ -5,12 +5,19 @@ export interface IDate {
 	date: string
 }
 
+interface IDateMaster extends IDate {
+	service: {
+		procedureId: string
+		serviceType: string
+	}
+}
+
 export interface IResponseGetDates {
 	procedureDates: IDate[]
 }
 
 export interface IResponseGetMasterDates {
-	dates: IDate[]
+	dates: IDateMaster[]
 }
 
 export interface ICreateDate extends DateSchemaType {
